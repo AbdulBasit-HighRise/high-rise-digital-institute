@@ -172,7 +172,7 @@ export default function Navbar() {
         <img 
           src="/logo.png" 
           alt="HRD Institute Logo"
-          className="h-8 md:h-10 w-auto object-contain" 
+          className="h-6 md:h-8 w-auto object-contain" 
         />
       </Link>
 

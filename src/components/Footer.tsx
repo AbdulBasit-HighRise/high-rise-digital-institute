@@ -25,7 +25,7 @@ export default function Footer() {
                 <img
                   src="/logo.png"
                   alt="HRD Institute Footer Logo"
-                  className="h-10 md:h-12 w-auto object-contain brightness-110"
+                  className="h-6 md:h-8 w-auto object-contain brightness-110"
                 />
               </div>
               <p className="text-white text-xs font-bold leading-relaxed max-w-sm pt-1">
