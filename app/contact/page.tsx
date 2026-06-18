@@ -38,7 +38,7 @@ export default function StudentEnrollmentForm() {
 
     setLoading(true);
 
-  try {
+    try {
       // 1. Create User in Supabase Auth
       const { data: authData, error: authError } = await supabase.auth.signUp({
         email: formData.email,
@@ -60,7 +60,7 @@ export default function StudentEnrollmentForm() {
           city: formData.city,
           age: parsedAge,
           gender: formData.gender,
-          education: formData.education, 
+          education: formData.education,
           address: formData.address,
           course_slug: formData.course,
           fee_status: "Unpaid",
@@ -337,7 +337,7 @@ export default function StudentEnrollmentForm() {
                   className="w-full bg-transparent border-b border-zinc-800 py-1.5 text-sm text-white font-bold focus:outline-none focus:border-[#00f2ff] transition-colors cursor-pointer"
                 >
                   <option value="" className="bg-[#0b0f19] text-zinc-400">-- SELECT YOUR PATH --</option>
-                  <option value="wordpress-seo" className="bg-[#0b0f19] text-white">WordPress Custom Architecture & Advanced SEO</option>
+                  <option value="wordpress-seo" className="bg-[#0b0f19] text-white">WordPress & SEO Mastery Track</option>
                 </select>
               </div>
 
