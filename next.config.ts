@@ -1,12 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* 🚀 Production Fixes for Hostinger Deployment */
-  output: 'export',       // Pure project ko static HTML/CSS mein export karega
+  output: 'export',       // Static export ke liye
   images: {
-    unoptimized: true,    // Hostinger par public folder ki images crash hone se bachayega
+    unoptimized: true,    // 🔥 Yeh line lagana sab se zaroori hai, is se images load hongi!
   },
-  trailingSlash: true,    // Sub-pages (like /about/) ke routing issues ko solve karega
+  trailingSlash: true,    // Routes ke paths ko handle karne ke liye
 };
 
 export default nextConfig;
