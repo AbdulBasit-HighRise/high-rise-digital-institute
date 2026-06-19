@@ -4,9 +4,9 @@ import { ExternalLink, ShieldCheck } from "lucide-react";
 export default function CertificatesSection() {
   const certificates = [
     { name: "Fizza Habib", title: "WordPress & SEO Specialist", id: "HRD-2026-081" },
-    { name: "Aniba Irfan", title: "Technical SEO Expert", id: "HRD-2026-142" },
-    { name: "Asad Ali Lakho", title: "Full-Stack Web Architect", id: "HRD-2026-094" },
-    { name: "Faraz Ahmed", title: "Custom WordPress Developer", id: "HRD-2026-311" },
+    { name: "Aniba Irfan", title: "WordPress & SEO Specialist", id: "HRD-2026-142" },
+    { name: "Asad Ali Lakho", title: "WordPress & SEO Specialist", id: "HRD-2026-094" },
+    { name: "Faraz Ahmed", title: "WordPress & SEO Specialist", id: "HRD-2026-311" },
   ];
 
   return (
@@ -25,16 +25,11 @@ export default function CertificatesSection() {
       <div className="max-w-7xl xl:max-w-[85rem] 2xl:max-w-[95rem] mx-auto w-full space-y-16">
 
         {/* 🏷️ MASTER HEADER */}
-        <div className="text-center space-y-4 cert-global-font">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-black uppercase tracking-[3px]">
-            <ShieldCheck size={12} className="text-blue-400" /> Secure Verification Pipeline
-          </div>
-       
-
+        <div className="text-center space-y-4 ">
           <h2 className="text-[2.1rem] sm:text-[2.5rem] xl:text-[2.8rem] 2xl:text-[3.2rem] font-black tracking-tight leading-[1.15] text-white">
-             Verified  {" "}
+            Verified  {" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
-             Students
+              Students
             </span>
           </h2>
           <div className="w-16 h-[3px] bg-blue-500 mx-auto mt-6 rounded-full" />
