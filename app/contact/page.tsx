@@ -7,6 +7,7 @@ import { supabase } from "@/src/components/lib/supabase";
 
 export default function StudentEnrollmentForm() {
   const [submitted, setSubmitted] = useState<boolean>(false);
+  const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState<boolean>(false);
   const [formData, setFormData] = useState({
     course: "",
@@ -433,9 +434,61 @@ export default function StudentEnrollmentForm() {
               </div>
 
               {/* 🔐 PASSWORD BLOCK */}
-              <div className="space-y-1.5">
-                <label className="text-[10px] font-black uppercase tracking-wider text-zinc-400 block">Portal Security Password</label>
-                <input type="password" required placeholder="Choose a strong password" value={formData.password} onChange={(e) => setFormData({ ...formData, password: e.target.value })} className="w-full bg-zinc-900/30 border border-white/5 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-[#00f2ff]/60 focus:bg-zinc-900/50 transition-all duration-300" />
+          {/* 🔒 PORTAL SECURITY PASSWORD (ULTRA-PREMIUM FIXED MAKEUP LASHES) */}
+              <div className="space-y-1.5 relative">
+                <label className="text-[10px] font-black uppercase tracking-wider text-zinc-400 block">
+                  Portal Security Password
+                </label>
+                
+                <div className="relative w-full">
+                  <input 
+                    type={showPassword ? "text" : "password"} 
+                    required 
+                    placeholder="Choose a strong password" 
+                    value={formData.password} 
+                    onChange={(e) => setFormData({ ...formData, password: e.target.value })} 
+                    className="w-full bg-zinc-900/30 border border-white/5 rounded-lg pl-4 pr-12 py-2.5 text-sm text-white focus:outline-none focus:border-[#00f2ff]/60 focus:bg-zinc-900/50 transition-all duration-300 relative z-10" 
+                  />
+                  
+                  {/* Luxury Eyelash Toggle Button */}
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute right-3.5 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-[#00f2ff] drop-shadow-[0_0_8px_rgba(0,242,255,0.4)] transition-all duration-300 focus:outline-none z-20 p-1"
+                    title={showPassword ? "Hide Password" : "Show Password"}
+                  >
+                    {showPassword ? (
+                      /* ✨ OPEN EYE: DENSE VOLUMIZED LASHES & WINGED EYELINER */
+                      <svg className="w-5 h-5 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.8">
+                        {/* Upper Winged Eyeliner Arc */}
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M2 12c2.5-4.5 6.5-6.5 10-6.5s7.5 2 10 6.5" className="stroke-2" />
+                        {/* Sharp Eyeliner Wing Tail */}
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.5l3.5-1.5-1 3.5" fill="currentColor" />
+                        {/* Lower Sleek Eye Contour */}
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M2 12c2.5 4.5 6.5 5.5 10 5.5s7.5-1 10-5.5" />
+                        
+                        {/* Luxury Dense Lashes */}
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 6.5L3.5 4.5M7.5 4.8L6.5 2.5M10.5 4V1.5M13.5 4V1.5M16.5 4.8l1-2.3M19 6.5l1.5-2" />
+                        
+                        {/* Glowing Lens / Pupil */}
+                        <circle cx="12" cy="12" r="2.2" fill="currentColor" className="text-[#00f2ff]" />
+                        <circle cx="13" cy="11" r="0.6" fill="white" />
+                      </svg>
+                    ) : (
+                      /* ✨ FIXED CLOSED EYE: BEAUTIFUL SYMMETRIC CURVED LASHES */
+                      <svg className="w-5 h-5 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.8">
+                        {/* Perfect Smooth Closed Eye Base Arc */}
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M3 11c4.5 4.5 13.5 4.5 18 0" strokeWidth="2" />
+                        
+                        {/* Sharp Elegant Wing Tail on End */}
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 11.5l3-2" className="stroke-2" />
+                        
+                        {/* Perfectly Spaced & Styled Makeup Eyelashes */}
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 12.5l-1 2.5M8 14l-0.5 3M11 14.5v3M14 14.5v3M17 14l0.5 3M19.5 12.5l1 2.5" />
+                      </svg>
+                    )}
+                  </button>
+                </div>
               </div>
 
               {/* 🏠 ADDRESS BLOCK */}
