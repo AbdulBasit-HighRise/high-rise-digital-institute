@@ -90,7 +90,7 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1, duration: 0.5 }}
                 viewport={{ once: true }}
-                className="text-zinc-400 text-sm md:text-base font-medium leading-relaxed max-w-xl"
+                className="text-white text-[16px] md:text-base lg:text-[17px] 2xl:text-xl 3xl:text-2xl font-medium leading-relaxed max-w-xl 2xl:max-w-2xl mx-auto lg:mx-0 opacity-90"
               >
                 Skip boring lectures. You will actively audit real websites, conduct advanced keyword research, build topical authority, and rank pages on Google—building a live portfolio to win high-paying international clients.
               </motion.p>
@@ -127,10 +127,10 @@ export default function About() {
 
                     {/* Feature Text */}
                     <div className="flex flex-col gap-1 min-w-0">
-                      <h4 className="text-sm sm:text-base font-black text-white uppercase tracking-wide group-hover:text-[#00f2ff] transition-colors duration-200">
+                      <h4 className="text-[17px] sm:text-[20px] font-black text-white  tracking-wide group-hover:text-[#00f2ff] transition-colors duration-200">
                         {feat.title}
                       </h4>
-                      <p className="text-xs sm:text-[13px] text-zinc-400 font-medium leading-relaxed group-hover:text-zinc-200 transition-colors duration-200">
+                      <p className="text-white text-[16px] md:text-base lg:text-[17px] 2xl:text-xl 3xl:text-2xl font-medium leading-relaxed max-w-xl 2xl:max-w-2xl mx-auto lg:mx-0 opacity-90">
                         {feat.desc}
                       </p>
                     </div>

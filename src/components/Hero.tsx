@@ -72,10 +72,10 @@ export default function HeroSection() {
                   </div>
 
                   <div className="flex flex-col justify-center min-w-0">
-                    <h4 className="text-xs sm:text-sm font-black text-white italic tracking-wide uppercase group-hover:text-blue-400 transition-colors duration-300 truncate">
+                    <h4 className="text-xs sm:text-sm font-black text-white  tracking-wide  group-hover:text-blue-400 transition-colors duration-300 truncate">
                       {item.title}
                     </h4>
-                    <p className="text-[10px] text-zinc-400 font-extrabold tracking-wider uppercase mt-0.5 group-hover:text-zinc-200 transition-colors duration-300 truncate">
+                    <p className="text-[10px] text-white font-bold tracking-wider uppercase mt-0.5 group-hover:text-white transition-colors duration-300 truncate">
                       {item.desc}
                     </p>
                   </div>

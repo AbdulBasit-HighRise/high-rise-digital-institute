@@ -81,141 +81,137 @@ export default function Navbar() {
   }
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-[100] w-full pointer-events-none">
-      <div className={`w-full transition-all duration-500 pointer-events-auto ${isScrolled ? "max-w-[1280px] mx-auto pt-1 px-4 md:px-8 lg:px-16 lg:pt-2" : "max-w-full pt-0 px-4 sm:px-8 md:px-12 lg:px-20 xl:px-32 2xl:px-80 3xl:px-52"}`}>
+  <div className="fixed top-0 left-0 right-0 z-[100] w-full pointer-events-none">
+  {/* Base padding transitions optimized for instant layout display */}
+  <div className={`w-full mx-auto pointer-events-auto transition-all duration-300 ${isScrolled ? "max-w-[1280px] pt-1 px-4 md:px-8 lg:px-16 lg:pt-2" : "max-w-full pt-0 px-4 sm:px-8 md:px-12 lg:px-20 xl:px-32 2xl:px-80 3xl:px-52"}`}>
+    
+    <nav
+      className={`relative flex items-center justify-between mx-auto transition-all duration-300 ease-in-out ${isScrolled ? "rounded-full px-6 md:px-8 py-2 bg-[#111827]/90 backdrop-blur-xl border border-white/10 shadow-2xl w-full max-w-[95%] lg:max-w-[1200px]" : "rounded-none px-0 py-4 bg-transparent border-transparent w-full"}`}
+    >
+      {/* Upper Ambient Horizon Glow Line */}
+      <div className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-blue-500/30 to-transparent transition-opacity duration-300 ${isScrolled ? "opacity-0 rounded-full" : "opacity-100"}`} />
+
+      {/* BRAND LOGO BLOCK */}
+      <Link 
+        href="/#home" 
+        onClick={(e) => handleScrollToSection(e, "/#home")} 
+        className="flex items-center z-50 shrink-0 transition-transform duration-300 active:scale-95"
+      >
+        <div className="relative h-6 md:h-8 w-28 md:w-36">
+          <Image 
+            src="/logo.png" 
+            alt="HRD Institute Logo"
+            fill
+            priority
+            unoptimized
+            sizes="(max-w-768px) 110px, 150px"
+            className="object-contain" 
+          />
+        </div>
+      </Link>
+
+      {/* DESKTOP NAVIGATION MATRIX */}
+      <div className="hidden lg:flex items-center gap-1">
+        {links
+          .filter(link => link.name.toLowerCase() !== 'home' && link.name.toLowerCase() !== 'about')
+          .map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <Link 
+                key={link.name} 
+                href={link.href} 
+                onClick={(e) => handleScrollToSection(e, link.href)}
+                className={`relative px-3 py-1.5 text-[10px] xl:text-[11px] font-bold uppercase tracking-widest transition-all group ${isActive ? "text-blue-500" : "text-zinc-300 hover:text-white"}`}
+              >
+                {link.name}
+                <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left ease-out" />
+              </Link>
+            );
+          })}
+      </div>
+
+      {/* ACTION BUTTONS */}
+      <div className="flex items-center gap-3 z-50 shrink-0">
         
-        <nav
-          className={`relative flex items-center justify-between transition-all duration-500 ease-in-out mx-auto ${isScrolled ? "rounded-full px-6 md:px-8 py-2 bg-[#111827]/90 backdrop-blur-xl border border-white/10 shadow-2xl w-full max-w-[95%] lg:max-w-[1200px]" : "rounded-none px-0 py-4 bg-transparent border-transparent w-full"}`}
+        {/* LOGIN BUTTON: WHITE -> GRADIENT */}
+        <a 
+          href="https://lms.highrisedigital.io" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="group relative overflow-hidden hidden lg:flex items-center justify-center font-black text-[10px] uppercase tracking-[2px] h-[38px] px-5 rounded-full bg-white text-black border border-white/20 shadow-md transition-all duration-300 ease-out active:scale-95 cursor-pointer no-underline"
         >
-          {/* Upper Ambient Horizon Glow Line */}
-          <div className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-blue-500/30 to-transparent transition-opacity duration-500 ${isScrolled ? "opacity-0 rounded-full" : "opacity-100"}`} />
+          <div className="absolute inset-0 w-0 bg-gradient-to-r from-blue-600 to-cyan-400 transition-all duration-300 ease-out group-hover:w-full" />
+          <span className="relative z-10 flex items-center gap-1.5 group-hover:text-white transition-colors duration-300 ease-out">
+            Login
+            <svg className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3.5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </span>
+        </a>
 
-          {/* BRAND LOGO BLOCK */}
-          <Link 
-            href="/#home" 
-            onClick={(e) => handleScrollToSection(e, "/#home")} 
-            className="flex items-center z-50 shrink-0 transition-transform duration-300 active:scale-95"
-          >
-            <div className="relative h-6 md:h-8 w-28 md:w-36">
-              <Image 
-                src="/logo.png" 
-                alt="HRD Institute Logo"
-                fill
-                priority
-                unoptimized
-                sizes="(max-w-768px) 110px, 150px"
-                className="object-contain" 
-              />
-            </div>
-          </Link>
+        {/* ENROLL NOW BUTTON: GRADIENT -> WHITE */}
+        <Link 
+          href="/contact"
+          onClick={(e) => handleScrollToSection(e, "/contact")}
+          className="group relative overflow-hidden hidden lg:flex items-center justify-center font-black text-[10px] uppercase tracking-[2px] h-[38px] px-5 rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 text-white border border-transparent shadow-md transition-all duration-300 ease-out active:scale-95 cursor-pointer no-underline"
+        >
+          <div className="absolute inset-0 w-0 bg-white transition-all duration-300 ease-out group-hover:w-full" />
+          <span className="relative z-10 flex items-center gap-1.5 group-hover:text-black transition-colors duration-300 ease-out">
+            Enroll Now
+            <svg className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3.5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </span>
+        </Link>
 
-          {/* DESKTOP NAVIGATION MATRIX */}
-          <div className="hidden lg:flex items-center gap-1">
-            {links
-              .filter(link => link.name.toLowerCase() !== 'home' && link.name.toLowerCase() !== 'about')
-              .map((link) => {
-                const isActive = pathname === link.href;
-                return (
-                  <Link 
-                    key={link.name} 
-                    href={link.href} 
-                    onClick={(e) => handleScrollToSection(e, link.href)}
-                    className={`relative px-3 py-1.5 text-[10px] xl:text-[11px] font-bold uppercase tracking-widest transition-all group ${isActive ? "text-blue-500" : "text-zinc-300 hover:text-white"}`}
-                  >
-                    {link.name}
-                    <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left ease-out" />
-                  </Link>
-                );
-              })}
-          </div>
+        {/* MOBILE BURGER MENU */}
+        <button 
+          onClick={() => setIsOpen(!isOpen)} 
+          className="lg:hidden text-white p-2 focus:outline-none rounded-xl bg-white/[0.02] border border-white/10 backdrop-blur-md"
+        >
+          {isOpen ? <X size={18} /> : <Menu size={18} />}
+        </button>
+      </div>
 
-          {/* ACTION BUTTONS (LOGIN & ENROLL NOW Linked to Contact Section) */}
-        {/* ⚡ ACTION BUTTONS (SAME SIZE - GRADIENT EFFECT) */}
-          <div className="flex items-center gap-3 z-50 shrink-0">
-            
-            {/* LOGIN BUTTON: WHITE -> GRADIENT */}
+      {/* MOBILE RESPONSIVE ACCORDION */}
+      {isOpen && (
+        <div className="absolute top-full left-0 right-0 bg-[#070707]/98 backdrop-blur-xl border border-white/10 lg:hidden flex flex-col gap-0 p-4 mt-2 rounded-3xl pointer-events-auto shadow-2xl overflow-hidden">
+          {links
+            .filter(link => link.name.toLowerCase() !== 'home' && link.name.toLowerCase() !== 'about')
+            .map((link) => (
+              <Link 
+                key={link.name} 
+                href={link.href} 
+                onClick={(e) => handleScrollToSection(e, link.href)} 
+                className="text-[11px] font-bold uppercase tracking-widest text-zinc-300 py-3.5 px-4 border-b border-white/5 last:border-0"
+              >
+                {link.name}
+              </Link>
+            ))}
+          
+          {/* MOBILE BUTTONS CONTAINER */}
+          <div className="pt-4 px-4 flex flex-col gap-3">
             <a 
-              href="https://lms.highrisedigital.io" 
-              target="_blank" 
+              href="https://lms.highrisedigital.io"
+              target="_blank"
               rel="noopener noreferrer"
-              className="group relative overflow-hidden hidden lg:flex items-center justify-center font-black text-[10px] uppercase tracking-[2px] h-[38px] px-5 rounded-full bg-white text-black border border-white/20 shadow-md transition-all duration-300 ease-out active:scale-95 cursor-pointer no-underline"
+              onClick={() => setIsOpen(false)}
+              className="block text-center w-full bg-white text-black font-black text-xs uppercase tracking-wider py-3.5 rounded-xl shadow-lg no-underline"
             >
-              {/* Hover state gradient background slider */}
-              <div className="absolute inset-0 w-0 bg-gradient-to-r from-blue-500 to-cyan-400 transition-all duration-300 ease-out group-hover:w-full" />
-              
-              <span className="relative z-10 flex items-center gap-1.5 group-hover:text-white transition-colors duration-300 ease-out">
-                Login
-                <svg className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3.5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </span>
+              Login
             </a>
-
-            {/* ENROLL NOW BUTTON: GRADIENT -> WHITE */}
             <Link 
               href="/contact"
               onClick={(e) => handleScrollToSection(e, "/contact")}
-              className="group relative overflow-hidden hidden lg:flex items-center justify-center font-black text-[10px] uppercase tracking-[2px] h-[38px] px-5 rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 text-white border border-transparent shadow-md transition-all duration-300 ease-out active:scale-95 cursor-pointer no-underline"
+              className="block text-center w-full bg-zinc-900 border border-white/10 text-white font-black text-xs uppercase tracking-wider py-3.5 rounded-xl shadow-lg no-underline"
             >
-              {/* Hover state white background slider */}
-              <div className="absolute inset-0 w-0 bg-white transition-all duration-300 ease-out group-hover:w-full" />
-              
-              <span className="relative z-10 flex items-center gap-1.5 group-hover:text-black transition-colors duration-300 ease-out">
-                Enroll Now
-                <svg className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3.5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </span>
+              Enroll Now
             </Link>
-
-            {/* MOBILE BURGER MENU */}
-            <button 
-              onClick={() => setIsOpen(!isOpen)} 
-              className="lg:hidden text-white p-2 focus:outline-none rounded-xl bg-white/[0.02] border border-white/10 backdrop-blur-md"
-            >
-              {isOpen ? <X size={18} /> : <Menu size={18} />}
-            </button>
           </div>
-
-          {/* MOBILE RESPONSIVE ACCORDION */}
-          {isOpen && (
-            <div className="absolute top-full left-0 right-0 bg-[#070707]/98 backdrop-blur-xl border border-white/10 lg:hidden flex flex-col gap-0 p-4 mt-2 rounded-3xl pointer-events-auto shadow-2xl overflow-hidden">
-              {links
-                .filter(link => link.name.toLowerCase() !== 'home' && link.name.toLowerCase() !== 'about')
-                .map((link) => (
-                  <Link 
-                    key={link.name} 
-                    href={link.href} 
-                    onClick={(e) => handleScrollToSection(e, link.href)} 
-                    className="text-[11px] font-bold uppercase tracking-widest text-zinc-300 py-3.5 px-4 border-b border-white/5 last:border-0"
-                  >
-                    {link.name}
-                  </Link>
-                ))}
-              
-              {/* MOBILE BUTTONS CONTAINER */}
-              <div className="pt-4 px-4 flex flex-col gap-3">
-                <a 
-                  href="https://lms.highrisedigital.io"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => setIsOpen(false)}
-                  className="block text-center w-full bg-white text-black font-black text-xs uppercase tracking-wider py-3.5 rounded-xl shadow-lg no-underline"
-                >
-                  Login
-                </a>
-                <Link 
-                  href="/contact"
-                  onClick={(e) => handleScrollToSection(e, "/contact")}
-                  className="block text-center w-full bg-zinc-900 border border-white/10 text-white font-black text-xs uppercase tracking-wider py-3.5 rounded-xl shadow-lg no-underline"
-                >
-                  Enroll Now
-                </Link>
-              </div>
-            </div>
-          )}
-        </nav>
-      </div>
-    </div>
+        </div>
+      )}
+    </nav>
+  </div>
+</div>
   );
 }

@@ -56,7 +56,7 @@ export default function StudentFeedback() {
   ];
 
   return (
-  <section id="feedback" className="relative w-full bg-[#111827] overflow-hidden py-16 md:py-24 2xl:py-32 px-4 sm:px-6 border-t border-white/5">
+ <section id="feedback" className="relative w-full bg-[#111827] overflow-hidden py-16 md:py-24 2xl:py-32 px-4 sm:px-6 border-t border-white/5">
 
   {/* 🏷️ HEADER SECTION */}
   <div className="text-center space-y-2 pb-12">
@@ -71,17 +71,15 @@ export default function StudentFeedback() {
   </div>
 
   {/* 🔄 INFINITE ROW SCROLLER CONTAINER */}
-  <div className="relative w-full overflow-hidden group py-4">
-    {/* Overlays */}
-    <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-r from-[#111827] to-transparent z-20 pointer-events-none" />
-    <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-l from-[#111827] to-transparent z-20 pointer-events-none" />
-
+  {/* Controls hover and active touch states to pause the animation and allow native touch scrolling */}
+  <div className="relative w-full overflow-x-auto select-none scrollbar-none py-4 group active:[animation-play-state:paused] touch-pan-x">
+    
     {/* Dynamic Infinite Track Loop */}
-    <div className="flex gap-4 animate-marquee whitespace-nowrap min-w-full will-change-transform group-hover:[animation-play-state:paused]">
+    <div className="flex gap-4 animate-marquee whitespace-nowrap min-w-full will-change-transform group-hover:[animation-play-state:paused] group-active:[animation-play-state:paused]">
       {[...feedbacks, ...feedbacks].map((card, idx) => (
         <div
           key={idx}
-          className="inline-block w-[250px] sm:w-[360px] bg-[#0c0c0e] border border-white/5 rounded-xl p-4 shadow-none sm:shadow-[0_10px_30px_rgba(0,0,0,0.5)] whitespace-normal select-none flex-shrink-0 transition-all duration-300"
+          className="inline-block w-[210px] sm:w-[360px] bg-[#0c0c0e] border border-white/5 rounded-xl p-4 shadow-none sm:shadow-[0_10px_30px_rgba(0,0,0,0.5)] whitespace-normal flex-shrink-0 transition-all duration-300"
         >
           {/* Card Meta Header Layer */}
           <div className="flex items-start justify-between gap-3 w-full">
@@ -93,11 +91,11 @@ export default function StudentFeedback() {
               />
               <div className="leading-tight">
                 <div className="flex items-center gap-1.5 flex-wrap">
-                  <h4 className="text-[12px] font-bold text-zinc-200 tracking-tight">
+                  <h4 className="text-[11px] sm:text-[12px] font-bold text-zinc-200 tracking-tight">
                     {card.name}
                   </h4>
                   {/* 📍 Location Badge */}
-                  <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded bg-zinc-800 text-[9px] text-[#10B981] font-bold tracking-tight">
+                  <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded bg-zinc-800 text-[8px] sm:text-[9px] text-[#10B981] font-bold tracking-tight">
                     <MapPin size={8} className="stroke-[2.5]" />
                     {card.location}
                   </span>
@@ -116,20 +114,20 @@ export default function StudentFeedback() {
           </div>
 
           {/* Feed Text content */}
-          <p className="text-zinc-400 text-xs font-normal leading-relaxed pt-2.5 border-b border-white/[0.03] pb-3 min-h-[110px] sm:min-h-[90px]">
+          <p className="text-zinc-400 text-[11px] sm:text-xs font-normal leading-relaxed pt-2.5 border-b border-white/[0.03] pb-3 min-h-[130px] sm:min-h-[90px]">
             "{card.text}"
           </p>
 
           {/* Interactive Toolbar Footer Layers */}
-          <div className="flex items-center justify-between text-zinc-600 text-[10px] font-bold pt-2.5 px-0.5">
-            <button className="flex items-center gap-1.5 hover:text-blue-500 transition-colors">
-              <ThumbsUp size={12} /> Like
+          <div className="flex items-center justify-between text-zinc-600 text-[9px] sm:text-[10px] font-bold pt-2.5 px-0.5">
+            <button className="flex items-center gap-1 hover:text-blue-500 transition-colors">
+              <ThumbsUp size={11} /> Like
             </button>
-            <button className="flex items-center gap-1.5 hover:text-emerald-500 transition-colors">
-              <MessageSquare size={12} /> Comment
+            <button className="flex items-center gap-1 hover:text-emerald-500 transition-colors">
+              <MessageSquare size={11} /> Comment
             </button>
-            <button className="flex items-center gap-1.5 hover:text-purple-500 transition-colors">
-              <Share2 size={12} /> Share
+            <button className="flex items-center gap-1 hover:text-purple-500 transition-colors">
+              <Share2 size={11} /> Share
             </button>
           </div>
 
@@ -146,6 +144,15 @@ export default function StudentFeedback() {
     @keyframes marquee {
       0% { transform: translateX(0%); }
       100% { transform: translateX(-50%); }
+    }
+    /* Hide scrollbar utility for chrome/safari/firefox */
+    .scrollbar-none::-webkit-scrollbar {
+      display: none;
+    }
+    .scrollbar-none {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
     }
   `}</style>
 
