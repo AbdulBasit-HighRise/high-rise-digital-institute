@@ -89,15 +89,20 @@ export default function HeroSection() {
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6 w-full sm:w-auto pt-4">
 
               {/* ENROLL NOW GRADIENT SLIDER BUTTON */}
-              <Link href="/contact" className="w-full sm:w-auto block">
-                <button className="group relative overflow-hidden w-full sm:min-w-[180px] h-[50px] rounded-full bg-white text-black font-black text-[12px] tracking-[2px] uppercase flex items-center justify-center gap-2 transition-all duration-500 shadow-xl active:scale-95 cursor-pointer">
-                  <div className="absolute inset-0 w-0 bg-gradient-to-r from-blue-500 to-cyan-400 transition-all duration-500 ease-out group-hover:w-full" />
-                  <span className="relative z-10 flex items-center gap-2 group-hover:text-white transition-colors duration-500">
-                    Enroll Now
-                    <ArrowUpRight size={14} className="group-hover:rotate-45 transition-transform duration-300" />
-                  </span>
-                </button>
-              </Link>
+         <Link href="/contact" className="w-full sm:w-auto block">
+  <button className="group relative overflow-hidden w-full sm:min-w-[180px] h-[48px] rounded-[5px] bg-white text-black font-bold text-[11px] tracking-[2px] uppercase flex items-center justify-center gap-2 transition-all duration-300 shadow-md border border-zinc-200/50 hover:border-transparent active:scale-[0.98] cursor-pointer">
+    
+    {/* Professional Sliding Gradient Overlay */}
+    <div className="absolute inset-0 w-0 bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 transition-all duration-300 ease-out group-hover:w-full" />
+    
+    {/* Button Text & Icon Layout */}
+    <span className="relative z-10 flex items-center gap-2 group-hover:text-white transition-colors duration-300">
+      Enroll Now
+      <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300 ease-out" />
+    </span>
+
+  </button>
+</Link>
 
               {/* ELITE NATIONWIDE TRUST BADGE */}
               <div className="flex items-center gap-4 border-l border-white/10 pl-6 h-10 w-full sm:w-auto justify-center sm:justify-start">

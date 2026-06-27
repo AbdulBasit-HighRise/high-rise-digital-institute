@@ -279,20 +279,71 @@ export default function StudentEnrollmentForm() {
                   <h3 className="text-xl font-black text-white uppercase tracking-wide italic">Payment Details</h3>
 
                   {/* Account Rows Stretched Cleanly */}
-                  <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {/* Bank Card Info */}
-                    <div className="p-4 rounded-xl bg-zinc-900/60 border border-white/5 space-y-1">
-                      <p className="text-[10px] text-zinc-500 font-bold uppercase tracking-wider">Bank Account (Meezan/HBL)</p>
-                      <p className="text-sm font-black text-white tracking-wide">Abdul Basit</p>
-                      <p className="text-sm font-mono font-bold text-cyan-400 tracking-wider">03451234567 <span className="text-[10px] text-zinc-500 font-sans">(Dummy No)</span></p>
+                  <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+
+                    {/* 🏦 CARD 1: MEEZAN BANK DETAILS */}
+                    <div className="p-4 rounded-xl bg-zinc-900/60 border border-white/5 flex flex-col justify-between space-y-2">
+                      <div>
+                        <p className="text-[10px] text-zinc-500 font-bold uppercase tracking-wider mb-1">Bank Account</p>
+                        <p className="text-xs font-black text-blue-400 uppercase tracking-wide">Meezan Bank</p>
+                      </div>
+
+                      <div className="space-y-1">
+                        <div>
+                          <span className="text-[9px] text-zinc-500 uppercase font-bold block">Title</span>
+                          <p className="text-sm font-black text-white tracking-wide">Abdul Basit</p>
+                        </div>
+                        <div>
+                          <span className="text-[9px] text-zinc-500 uppercase font-bold block">Account No</span>
+                          <p className="text-sm font-mono font-bold text-cyan-400 tracking-wider">05160106365187</p>
+                        </div>
+                        <div>
+                          <span className="text-[9px] text-zinc-500 uppercase font-bold block">IBAN</span>
+                          <p className="text-[10px] font-mono font-bold text-emerald-400 tracking-tight select-all">
+                            PK07MEZN0005160106365187
+                          </p>
+                        </div>
+                      </div>
                     </div>
 
-                    {/* JazzCash Info */}
-                    <div className="p-4 rounded-xl bg-zinc-900/60 border border-white/5 space-y-1">
-                      <p className="text-[10px] text-zinc-500 font-bold uppercase tracking-wider">JazzCash Wallet</p>
-                      <p className="text-sm font-black text-white tracking-wide">Abdul Basit</p>
-                      <p className="text-sm font-mono font-bold text-amber-500 tracking-wider">03001234567</p>
+                    {/* 📱 CARD 2: JAZZCASH WALLET */}
+                    <div className="p-4 rounded-xl bg-zinc-900/60 border border-white/5 flex flex-col justify-between space-y-3">
+                      <div>
+                        <p className="text-[10px] text-zinc-500 font-bold uppercase tracking-wider mb-1">Mobile Wallet</p>
+                        <p className="text-xs font-black text-amber-500 uppercase tracking-wide">JazzCash</p>
+                      </div>
+
+                      <div className="space-y-1">
+                        <div>
+                          <span className="text-[9px] text-zinc-500 uppercase font-bold block">Account Title</span>
+                          <p className="text-sm font-black text-white tracking-wide">Abdul Basit</p>
+                        </div>
+                        <div>
+                          <span className="text-[9px] text-zinc-500 uppercase font-bold block">Account No</span>
+                          <p className="text-sm font-mono font-bold text-amber-500 tracking-wider select-all">03002777587</p>
+                        </div>
+                      </div>
                     </div>
+
+                    {/* 🟢 CARD 3: EASYPAISA WALLET */}
+                    <div className="p-4 rounded-xl bg-zinc-900/60 border border-white/5 flex flex-col justify-between space-y-3">
+                      <div>
+                        <p className="text-[10px] text-zinc-500 font-bold uppercase tracking-wider mb-1">Mobile Wallet</p>
+                        <p className="text-xs font-black text-emerald-500 uppercase tracking-wide">EasyPaisa</p>
+                      </div>
+
+                      <div className="space-y-1">
+                        <div>
+                          <span className="text-[9px] text-zinc-500 uppercase font-bold block">Account Title</span>
+                          <p className="text-sm font-black text-white tracking-wide">Abdul Basit</p>
+                        </div>
+                        <div>
+                          <span className="text-[9px] text-zinc-500 uppercase font-bold block">Account No</span>
+                          <p className="text-sm font-mono font-bold text-emerald-400 tracking-wider select-all">03002777587</p>
+                        </div>
+                      </div>
+                    </div>
+
                   </div>
                 </div>
               </div>
