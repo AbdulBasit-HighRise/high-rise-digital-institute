@@ -18,9 +18,9 @@ export default function CertificatesSection() {
 
         {/* 🏷️ MASTER HEADER WITH LUXURY SITE GRADIENTS */}
         <div className="text-center space-y-3">
-          <h2 className="text-3xl md:text-5xl font-black tracking-tight text-white ">
+          <h2 className="text-[1.8rem] md:text-5xl font-black tracking-tight text-white ">
             Verified {" "}
-            <span className="inline-block bg-gradient-to-r from-[#00f2ff] via-[#0070ff] to-[#00f2ff] bg-[length:200%_auto] text-transparent bg-clip-text py-1">
+            <span className=" bg-gradient-to-r from-[#00f2ff] via-[#0070ff] to-[#00f2ff] bg-[length:200%_auto] text-transparent bg-clip-text py-1">
               Student Certificates
             </span>
           </h2>

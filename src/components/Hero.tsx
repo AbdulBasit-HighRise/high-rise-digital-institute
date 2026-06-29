@@ -23,11 +23,11 @@ export default function HeroSection() {
           {/* 📝 LEFT CONTENT */}
           <div className="lg:col-span-6 space-y-8 text-center lg:text-left flex flex-col items-center lg:items-start justify-center">
             {/* 🎯 Premium Animated Heading - Perfect on Desktop & Fully Fixed for Mobile */}
-            <h1 className="text-[2rem] sm:text-[3.2rem] md:text-[3rem] lg:text-[3rem] xl:text-[3rem] 2xl:text-[4.8rem] 3xl:text-[5.5rem] font-black leading-[1.2] lg:leading-[1.15] xl:leading-[1.1] tracking-tighter text-white flex flex-col gap-1 lg:gap-2 w-full">
+            <h1 className="text-[1.8rem] sm:text-[3.2rem] md:text-[3rem] lg:text-[3rem] xl:text-[3rem] 2xl:text-[4.8rem] 3xl:text-[5.5rem] font-black leading-[1.2] lg:leading-[1.15] xl:leading-[1.1] tracking-tighter text-white flex flex-col gap-1 lg:gap-2 w-full">
               <span className="block max-sm:whitespace-normal whitespace-nowrap lg:min-w-max">
                 Pakistan’s Most Practical
               </span>
-              <span className="block max-sm:whitespace-normal whitespace-nowrap bg-gradient-to-r from-[#00f2ff] via-[#0070ff] to-[#00f2ff] bg-[length:200%_auto] animate-gradient text-transparent bg-clip-text py-1">
+              <span className=" max-sm:whitespace-normal whitespace-nowrap bg-gradient-to-r from-[#00f2ff] via-[#0070ff] to-[#00f2ff] bg-[length:200%_auto] animate-gradient text-transparent bg-clip-text py-1">
                 SEO Training Program
               </span>
             </h1>

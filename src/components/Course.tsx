@@ -81,9 +81,9 @@ export default function CoursesSection() {
         {/* 🏷️ HEADER SECTION */}
         <div className="flex flex-col md:flex-row items-center md:items-end justify-between gap-4 text-center md:text-left border-b border-white/5 pb-6">
           <div className="space-y-2">
-            <h2 className="text-[1.6rem] sm:text-[2rem] md:text-[2.5rem] lg:text-[2.5rem] 2xl:text-[3.2rem] font-black leading-tight md:leading-none tracking-tighter text-white font-sans whitespace-nowrap">
+            <h2 className="text-[1.8rem] sm:text-[2rem] md:text-[2.5rem] lg:text-[2.5rem] 2xl:text-[3.2rem] font-black leading-tight md:leading-none tracking-tighter text-white font-sans whitespace-nowrap">
               Master{" "}
-              <span className="inline bg-gradient-to-r from-[#00f2ff] via-[#0070ff] to-[#00f2ff] bg-[length:200%_auto] animate-gradient text-transparent bg-clip-text py-1">
+              <span className=" bg-gradient-to-r from-[#00f2ff] via-[#0070ff] to-[#00f2ff] bg-[length:200%_auto] animate-gradient text-transparent bg-clip-text py-1">
                 Pathway
               </span>
             </h2>

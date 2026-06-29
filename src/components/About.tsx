@@ -76,8 +76,8 @@ export default function About() {
                     Must Watch Before Admission
                   </span>
                 </div>
-                <h2 className="text-[2.1rem] sm:text-[2.5rem] xl:text-[2.8rem] 2xl:text-[3.2rem] font-black tracking-tight leading-[1.15] text-white">
-                  What You Will Master : <br />
+                <h2 className="text-[1.8rem] sm:text-[2.5rem] xl:text-[2.8rem] 2xl:text-[3.2rem] font-black tracking-tight leading-[1.15] text-white">
+                  What You Will Master: {" "}
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
                     No Theory, Just Live Projects
                   </span>

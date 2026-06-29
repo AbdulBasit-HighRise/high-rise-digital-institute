@@ -63,7 +63,7 @@ export default function StudentFeedback() {
     <p className="text-[10px] md:text-xs font-black text-[#10B981] uppercase tracking-[3px] font-mono">
       What Our Students Say About Us
     </p>
-    <h2 className="text-[2.3rem] md:text-[2.5rem] lg:text-[2.5rem] 2xl:text-[3.2rem] font-black leading-[1.2] md:leading-none tracking-tighter text-white font-sans">
+    <h2 className="text-[1.8rem] md:text-[2.5rem] lg:text-[2.5rem] 2xl:text-[3.2rem] font-black leading-[1.2] md:leading-none tracking-tighter text-white font-sans">
       Students' {" "}
       <span className="bg-gradient-to-r from-[#00f2ff] via-[#0070ff] to-[#00f2ff] bg-[length:200%_auto] animate-gradient text-transparent bg-clip-text py-1 inline-block">Feedback</span>
     </h2>

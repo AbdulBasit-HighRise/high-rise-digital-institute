@@ -20,7 +20,7 @@ export default function CTASection() {
           <div className="space-y-4 w-full lg:max-w-3xl xl:max-w-4xl text-center lg:text-left flex flex-col items-center lg:items-start">
 
             {/* Core Flagship Headline precisely mimicking screenshot styling */}
-            <h2 className="text-[2.3rem]  md:text-[2.5rem] lg:text-[2.5rem] 2xl:text-[3.2rem] font-black leading-[1.02] tracking-tighter text-white uppercase italic font-sans">
+            <h2 className="text-[1.8rem]  md:text-[2.5rem] lg:text-[2.5rem] 2xl:text-[3.2rem] font-black leading-[1.02] tracking-tighter text-white uppercase italic font-sans">
               STOP SCROLLING. <br />
               <span className="bg-gradient-to-r from-[#00f2ff] via-[#0070ff] to-[#00f2ff] bg-[length:200%_auto] animate-gradient text-transparent bg-clip-text">
                 START EARNING.

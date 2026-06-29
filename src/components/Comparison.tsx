@@ -41,7 +41,7 @@ export default function ComparisonSection() {
 
         {/* 🏷️ BRAND HEADER BLOCK */}
         <div className="text-center space-y-2 pb-4">
-          <h2 className="text-[2.3rem] md:text-[2.5rem] lg:text-[2.5rem] 2xl:text-[3.2rem] font-black leading-none tracking-tighter text-white font-sans">
+          <h2 className="text-[1.8rem] md:text-[2.5rem] lg:text-[2.5rem] 2xl:text-[3.2rem] font-black leading-none tracking-tighter text-white font-sans">
             The Real{" "}
             <span className="bg-gradient-to-r from-[#00f2ff] via-[#0070ff] to-[#00f2ff] bg-[length:200%_auto] animate-gradient text-transparent bg-clip-text">Difference</span>
           </h2>

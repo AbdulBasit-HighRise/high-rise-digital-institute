@@ -99,9 +99,9 @@ export default function StudentCarouselSection() {
           <div className="flex flex-col items-center justify-center text-center space-y-4 w-full max-w-4xl mx-auto px-4">
 
             {/* 🎯 Heading: Clean tracking aur mobile safety line-height ke sath */}
-            <h2 className="text-[2.3rem] md:text-[2.5rem] lg:text-[2.5rem] 2xl:text-[3.2rem] font-black leading-[1.15] md:leading-[1.05] tracking-tighter text-white font-sans text-center block">
+            <h2 className="text-[1.6rem] md:text-[2.5rem] lg:text-[2.5rem] 2xl:text-[3.2rem] font-black leading-[1.15] md:leading-[1.05] tracking-tighter text-white font-sans text-center ">
               What Our Students Say{" "}
-              <span className="bg-gradient-to-r from-[#00f2ff] via-[#0070ff] to-[#00f2ff] bg-[length:200%_auto] animate-gradient text-transparent bg-clip-text inline-block py-1">
+              <span className="bg-gradient-to-r from-[#00f2ff] via-[#0070ff] to-[#00f2ff] bg-[length:200%_auto] animate-gradient text-transparent bg-clip-text py-1">
                 About Us
               </span>
             </h2>
