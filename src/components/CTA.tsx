@@ -40,26 +40,26 @@ export default function CTASection() {
           </div>
 
           {/* Right Action Button Control Block */}
-          <div className="w-full sm:w-auto lg:w-auto flex-shrink-0 flex justify-center lg:justify-end">
-           <Link href="/contact" className="w-full sm:w-auto relative group block">
-  {/* 🟦 Outer Glow Ring on Hover - Aligned Perfectly to Rounded 5px */}
-  <div className="absolute -inset-1 rounded-[5px] bg-gradient-to-r from-blue-600 to-cyan-500 opacity-0 group-hover:opacity-60 blur-md transition duration-300 pointer-events-none" />
+         <div className="w-full sm:w-auto lg:w-auto flex-shrink-0 flex justify-center lg:justify-end">
+  <Link href="/contact" className="w-full sm:w-auto relative group block">
+    {/* 🟦 Outer Glow Ring on Hover - Perfectly Aligned to Rounded Full */}
+    <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 opacity-0 group-hover:opacity-60 blur-md transition duration-500 pointer-events-none" />
 
-  {/* Premium Action Button Card */}
-  <button
-    className="group relative overflow-hidden w-full sm:min-w-[260px] xl:min-w-[300px] h-14 xl:h-16 rounded-[5px] bg-white text-zinc-950 font-bold text-xs md:text-sm xl:text-base tracking-[2px] uppercase flex items-center justify-center gap-3 transition-all duration-300 shadow-xl border border-zinc-200/50 hover:border-transparent active:scale-[0.98] cursor-pointer"
-  >
-    {/* Blue to Cyan Hover Effect Gradient Layer */}
-    <div className="absolute inset-0 w-0 bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 transition-all duration-300 ease-out group-hover:w-full" />
+    {/* Premium Action Button Card (ROUNDED-FULL) */}
+    <button
+      className="group relative overflow-hidden w-full sm:min-w-[260px] xl:min-w-[300px] h-14 xl:h-16 rounded-full bg-white text-zinc-950 font-black text-xs md:text-sm xl:text-base tracking-[2px] uppercase flex items-center justify-center gap-3 transition-all duration-500 shadow-2xl active:scale-95 cursor-pointer"
+    >
+      {/* Blue to Cyan Hover Effect Gradient Layer */}
+      <div className="absolute inset-0 w-0 bg-gradient-to-r from-blue-500 to-cyan-400 transition-all duration-500 ease-out group-hover:w-full" />
 
-    {/* Button Text & Icon Layer - High Contrast Visibility */}
-    <span className="relative z-10 flex items-center gap-3 text-zinc-950 group-hover:text-white transition-colors duration-200 ease-out antialiased">
-      SECURE YOUR SEAT
-      <ArrowRight size={18} className="group-hover:translate-x-1.5 transition-transform duration-300 ease-out stroke-[3px]" />
-    </span>
-  </button>
-</Link>
-          </div>
+      {/* Button Text & Icon Layer - High Contrast Visibility */}
+      <span className="relative z-10 flex items-center gap-3 text-zinc-950 group-hover:text-white transition-colors duration-500 ease-out antialiased">
+        SECURE YOUR SEAT
+        <ArrowRight size={18} className="group-hover:translate-x-1.5 transition-transform duration-300 ease-out stroke-[3px]" />
+      </span>
+    </button>
+  </Link>
+</div>
         </div>
 
       </div>

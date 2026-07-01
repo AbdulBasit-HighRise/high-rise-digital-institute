@@ -4,8 +4,14 @@ import { useState } from "react";
 import Link from "next/link";
 import { CheckCircle2, Loader2, MessageCircle, ArrowRight } from "lucide-react";
 import { supabase } from "@/src/components/lib/supabase";
+// import React, { useState } from 'react';
 
+// export default function RegistrationPage() {
+//   // Modal state control karne ke liye
+// }
 export default function StudentEnrollmentForm() {
+  const [isOpen, setIsOpen] = useState(false);
+
   const [submitted, setSubmitted] = useState<boolean>(false);
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState<boolean>(false);
@@ -114,139 +120,325 @@ export default function StudentEnrollmentForm() {
     <main className="min-h-screen bg-[#0b0f19] flex flex-col lg:flex-row font-sans pt-20 sm:pt-24 lg:pt-0 selection:bg-[#7bc143] selection:text-white relative overflow-hidden">
 
       {/* 🔵 LEFT SIDE: MARKETING BANNER */}
-      <section className="w-full lg:w-[42%] bg-gradient-to-br from-[#030712] via-[#09152e] to-[#021b3a] text-white p-8 sm:p-12 lg:p-16 lg:pt-28 flex flex-col justify-between relative min-h-[750px] lg:min-h-screen border-b lg:border-b-0 lg:border-r border-white/5 overflow-hidden">
+      <section className="w-full lg:w-[42%] bg-gradient-to-br from-[#030712] via-[#09152e] to-[#021b3a] text-white p-8 sm:p-12 lg:p-16 lg:pt-28 flex flex-col justify-between relative min-h-[650px] lg:min-h-screen border-b lg:border-b-0 lg:border-r border-white/5 overflow-hidden shrink-0">
 
+        {/* Ambient Background Lights */}
         <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-[#00f2ff]/10 rounded-full blur-[140px] pointer-events-none" />
         <div className="absolute bottom-20 -right-20 w-80 h-80 bg-blue-500/[0.04] rounded-full blur-[100px] pointer-events-none" />
 
-        <div className="space-y-2 max-w-[260px] relative z-10 select-none">
-          <div className="bg-zinc-950/70 backdrop-blur-xl text-white p-3 rounded-xl flex items-center justify-between gap-3 border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-300 hover:border-[#00f2ff]/30">
-
-            {/* 🏷️ LIVE STATUS BADGE */}
-            <div className="relative flex items-center gap-1.5 bg-gradient-to-r from-[#00f2ff]/10 to-[#0070ff]/10 border border-[#00f2ff]/30 text-[#00f2ff] font-black px-2.5 py-1 rounded-md text-[9px] tracking-wider uppercase shadow-[inset_0_0_10px_rgba(0,242,255,0.1)]">
-              {/* Tiny Animated Radar Dot */}
-              <span className="relative flex h-1.5 w-1.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00f2ff] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#00f2ff]"></span>
-              </span>
-              LMS Live
-            </div>
-
-            {/* 📝 BRAND DETAILS */}
-            <div className="text-right space-y-0.5">
-              <div className="text-[10px] uppercase font-black tracking-[1.5px] leading-none text-white">
-                HRD SKILLS
-              </div>
-              <div className="text-[9px] font-black tracking-wider text-zinc-400 uppercase">
-                Admissions <span className="text-[#00f2ff] font-mono">2026</span>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
+        {/* Top/Middle Section: Headings & Action Button */}
         <div className="my-auto py-10 lg:py-6 space-y-8 max-w-xl relative z-10">
           <div className="space-y-4">
             <div className="w-16 h-[4px] bg-[#00f2ff] rounded-full shadow-[0_0_15px_rgba(0,242,255,0.6)]" />
-            <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-black tracking-tighter uppercase leading-[1.02] text-white">
+
+            <h1 className="text-[2rem] sm:text-[2.5rem] font-black tracking-tighter uppercase leading-[1.02] text-white">
               LMS REGISTRATION <br />
               <span className="bg-gradient-to-r from-[#00f2ff] via-[#00a2ff] to-[#3b82f6] bg-clip-text text-transparent drop-shadow-sm">
                 START LEARNING
               </span> <br /> 📚💡
             </h1>
-            <p className="text-xs sm:text-sm font-medium leading-relaxed text-zinc-400 max-w-md border-l-2 border-[#00f2ff] pl-4">
+
+            <p className="text-xs sm:text-sm font-normal leading-relaxed text-white max-w-md border-l-2 border-[#00f2ff] pl-4">
               Create your secure industrial account to access top-tier frameworks, monitor milestones, and lock elite freelancing career paths.
             </p>
           </div>
 
-          <div className="space-y-4 pt-2">
-            {/* ⚡ PRO TECH FEATURES CARDS */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              {/* Card 1: Live Projects */}
-              <div className="bg-zinc-900/40 backdrop-blur-md border border-white/5 p-4 rounded-xl space-y-1.5 hover:border-[#00f2ff]/40 hover:shadow-[0_0_25px_rgba(0,242,255,0.08)] transition-all duration-300 group cursor-pointer">
-                <span className="text-xl block filter drop-shadow-[0_0_8px_rgba(0,242,255,0.3)]">🎯</span>
-                <h4 className="text-[11px] font-black text-white uppercase tracking-wider group-hover:text-[#00f2ff] transition-colors">
-                  Live Projects
-                </h4>
-                <p className="text-[10px] text-zinc-400 font-bold leading-normal">
-                  Build real websites step-by-step and learn how to launch them live on the internet.
-                </p>
-              </div>
-
-              {/* Card 2: Earning Path */}
-              <div className="bg-zinc-900/40 backdrop-blur-md border border-white/5 p-4 rounded-xl space-y-1.5 hover:border-[#00f2ff]/40 hover:shadow-[0_0_25px_rgba(0,242,255,0.08)] transition-all duration-300 group cursor-pointer">
-                <span className="text-xl block filter drop-shadow-[0_0_8px_rgba(0,242,255,0.3)]">💰</span>
-                <h4 className="text-[11px] font-black text-white uppercase tracking-wider group-hover:text-[#00f2ff] transition-colors">
-                  Earning Roadmap
-                </h4>
-                <p className="text-[10px] text-zinc-400 font-bold leading-normal">
-                  Learn the right way to get real orders on Fiverr, Upwork, and find direct clients.
-                </p>
-              </div>
-
-              {/* Card 3: 1-1 Support */}
-              <div className="bg-zinc-900/40 backdrop-blur-md border border-white/5 p-4 rounded-xl space-y-1.5 hover:border-[#00f2ff]/40 hover:shadow-[0_0_25px_rgba(0,242,255,0.08)] transition-all duration-300 group cursor-pointer">
-                <span className="text-xl block filter drop-shadow-[0_0_8px_rgba(0,242,255,0.3)]">🔥</span>
-                <h4 className="text-[11px] font-black text-white uppercase tracking-wider group-hover:text-[#00f2ff] transition-colors">
-                  1-1 Expert Help
-                </h4>
-                <p className="text-[10px] text-zinc-400 font-bold leading-normal">
-                  Get stuck anywhere while working? Get direct help from experts to solve your problems.
-                </p>
-              </div>
-            </div>
-
-            {/* 📍 PREMIUM LOCATION FOOTER */}
-            <div className="flex items-start gap-3 bg-zinc-900/20 backdrop-blur-sm border border-white/5 p-4 rounded-xl w-full sm:max-w-md transition-all duration-300 hover:border-zinc-800">
-              <div className="w-9 h-9 rounded-lg bg-[#00f2ff]/10 flex items-center justify-center text-[#00f2ff] shrink-0 border border-[#00f2ff]/20 shadow-[0_0_15px_rgba(0,242,255,0.1)]">
-                📍
-              </div>
-              <div className="space-y-0.5">
-                <h5 className="text-[10px] font-black uppercase text-zinc-400 tracking-wider">Location </h5>
-                <p className="text-xs font-black text-white uppercase tracking-wide leading-tight">
-                  HRD Institute, Multan, Pakistan.
-                </p>
-              </div>
-            </div>
+          {/* Interactive Button to Open SEO Content Popup */}
+          <div className="pt-2">
+            <button
+              onClick={() => setIsOpen(true)}
+              className="group relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-xs sm:text-sm font-bold text-white rounded-lg group bg-gradient-to-br from-[#00f2ff] via-[#00a2ff] to-[#3b82f6] group-hover:from-[#00f2ff] group-hover:to-[#3b82f6] hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-800 transition-all duration-300 shadow-[0_0_20px_rgba(0,242,255,0.15)] hover:shadow-[0_0_25px_rgba(0,242,255,0.35)]"
+            >
+              <span className="relative px-5 py-3 transition-all duration-75 bg-[#030712] rounded-md group-hover:bg-opacity-0 flex items-center gap-2 uppercase tracking-wider">
+                <span>View Course Outline</span>
+                <span className="text-[#00f2ff] group-hover:text-white transition-colors duration-200">➔</span>
+              </span>
+            </button>
+            <p className="text-[11px] text-zinc-500 mt-2 pl-1">WordPress & Advanced SEO Training Program Included</p>
           </div>
         </div>
 
-        <div className="flex items-center gap-4 border-l border-white/10 pl-6 h-10 w-full sm:w-auto justify-center sm:justify-start">
-          <div className="flex items-center gap-4 text-left bg-transparent p-0">
-            <div className="flex -space-x-3.5 items-center isolation-auto">
-              {[
-                "https://images.unsplash.com/photo-1669804227127-0876cb0f5474?w=500&auto=format&fit=crop&q=60",
-                "https://plus.unsplash.com/premium_photo-1682096108814-b53765f48ba5?w=700&auto=format&fit=crop&q=60",
-                "https://images.unsplash.com/photo-1647151481397-95e581943ac1?w=700&auto=format&fit=crop&q=60",
-                "https://images.unsplash.com/photo-1599842057874-37393e9342df?w=700&auto=format&fit=crop&q=60",
-                "https://images.unsplash.com/photo-1711374316403-2bfa31ae9c2a?w=700&auto=format&fit=crop&q=60"
-              ].map((src, idx) => (
-                <div
-                  key={idx}
-                  className="w-9 h-9 rounded-full border-2 border-[#111827] ring-1 ring-emerald-500/40 overflow-hidden bg-zinc-900 shrink-0 transform hover:scale-110 hover:z-10 transition-all duration-300"
-                >
-                  <img
-                    src={src}
-                    alt={`Student ${idx + 1}`}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                    draggable="false"
-                  />
-                </div>
-              ))}
-            </div>
+        {/* Bottom Section: Thin Divider + Trust Badge */}
+        <div className="space-y-6 relative z-10 mt-auto">
+          <div className="w-full h-px bg-gradient-to-r from-white/10 via-white/5 to-transparent" />
 
-            <div className="flex flex-col justify-center leading-none">
-              <h4 className="text-xl font-black text-white tracking-tight flex items-center gap-0.5 uppercase">
-                150<span className="text-blue-500 font-black">+</span>
-              </h4>
-              <p className="text-[10px] text-white font-black uppercase tracking-widest mt-1.5 whitespace-nowrap">
-                Students Trained.
-              </p>
+          {/* ELITE NATIONWIDE TRUST BADGE */}
+          <div className="flex items-center gap-4 border-l border-white/10 pl-6 h-10 w-full sm:w-auto justify-center sm:justify-start">
+            <div className="flex items-center gap-4 text-left bg-transparent p-0">
+              <div className="flex -space-x-3.5 items-center isolation-auto">
+                {[
+                  "https://images.unsplash.com/photo-1669804227127-0876cb0f5474?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHBha2lzdGFuaSUyMGJveXN8ZW58MHx8MHx8fDA%3D",
+                  "https://plus.unsplash.com/premium_photo-1682096108814-b53765f48ba5?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHBha2lzdGFuaSUyMGdpcmx8ZW58MHx8MHx8fDA%3D",
+                  "https://images.unsplash.com/photo-1647151481397-95e581943ac1?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cGFraXN0YW5pJTIwYm95c3xlbnwwfHwwfHx8MA%3D%3D",
+                  "https://images.unsplash.com/photo-1599842057874-37393e9342df?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHBha2lzdGFuaSUyMGdpcmx8ZW58MHx8MHx8fDA%3D",
+                  "https://images.unsplash.com/photo-1711374316403-2bfa31ae9c2a?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHBha2lzdGFuaSUyMGJveXN8ZW58MHx8MHx8fDA%3D"
+                ].map((src, idx) => (
+                  <div
+                    key={idx}
+                    className="w-9 h-9 rounded-full border-2 border-[#111827] ring-1 ring-emerald-500/40 overflow-hidden bg-zinc-900 shrink-0 transform hover:scale-110 hover:z-10 transition-all duration-300"
+                  >
+                    <img src={src} alt={`Student ${idx + 1}`} className="w-full h-full object-cover" loading="lazy" />
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex flex-col justify-center leading-none">
+                <h4 className="text-xl font-black text-white tracking-tight flex items-center gap-0.5 uppercase">
+                  150<span className="text-blue-500 font-black">+</span>
+                </h4>
+                <p className="text-[10px] text-white font-black uppercase tracking-widest mt-1.5 whitespace-nowrap">
+                  Students Trained.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* RIGHT SIDE placeholder (Aapka registration form yahan aayega) */}
+      <section className="flex-1 p-8 flex items-center justify-center text-zinc-500">
+        {/* Aapka Form Component Yahan Fit Hoga */}
+      </section>
+      {isOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md animate-fadeIn">
+          {/* Outer Modal Box */}
+          <div className="relative w-full max-w-4xl bg-gradient-to-b from-[#09152e] to-[#021b3a] border border-white/10 rounded-2xl shadow-2xl flex flex-col max-h-[85vh] overflow-hidden">
+
+            {/* Header Area */}
+            <div className="p-6 border-b border-white/15 flex items-center justify-between bg-white/[0.01]">
+              <div>
+                <span className="text-[10px] font-bold text-[#00f2ff] tracking-widest uppercase bg-cyan-500/10 px-2 py-1 rounded">Course Curriculum</span>
+                <h2 className="text-lg sm:text-xl font-black text-white uppercase tracking-tight mt-1">
+                  WordPress & Advanced SEO Training Program
+                </h2>
+              </div>
+              <button
+                onClick={() => setIsOpen(false)}
+                className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white flex items-center justify-center text-xl font-bold transition-colors border border-white/5"
+              >
+                ✕
+              </button>
+            </div>
+
+            {/* Scrollable Body Content */}
+            <div className="p-6 overflow-y-auto space-y-4 text-left scrollbar-thin scrollbar-thumb-white/10">
+
+              {/* Point 1 */}
+              <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5">
+                <h3 className="text-sm font-black text-[#00f2ff] uppercase tracking-wide mb-1">WordPress Website Development</h3>
+                <p className="text-xs text-zinc-400 leading-relaxed">Learn to build, customize, and manage professional WordPress websites from scratch. Gain hands-on experience creating business websites, blogs, eCommerce stores, and landing pages using modern themes, plugins, and page builders.</p>
+              </div>
+
+              {/* Point 2 */}
+              <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5">
+                <h3 className="text-sm font-black text-[#00f2ff] uppercase tracking-wide mb-1">Website Planning & Niche Research</h3>
+                <p className="text-xs text-zinc-400 leading-relaxed">Learn how to identify profitable niches, analyze competitors, understand user intent, and create content strategies that help websites achieve long-term organic growth.</p>
+              </div>
+
+              {/* Point 3 */}
+              <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5">
+                <h3 className="text-sm font-black text-[#00f2ff] uppercase tracking-wide mb-1">AI-Powered SEO</h3>
+                <p className="text-xs text-zinc-400 leading-relaxed">Discover how to leverage AI tools to streamline keyword research, content planning, optimization, and workflow automation while maintaining high-quality, search-focused content.</p>
+              </div>
+
+              {/* Point 4 */}
+              <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5">
+                <h3 className="text-sm font-black text-[#00f2ff] uppercase tracking-wide mb-1">AI Search Optimization (Answer Engine Optimization)</h3>
+                <p className="text-xs text-zinc-400 leading-relaxed">Understand how AI-powered search platforms work and learn strategies to optimize content for AI-generated answers, conversational search, and emerging search experiences.</p>
+              </div>
+
+              {/* Point 5 */}
+              <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5">
+                <h3 className="text-sm font-black text-[#00f2ff] uppercase tracking-wide mb-1">Keyword Research & Content Strategy</h3>
+                <p className="text-xs text-zinc-400 leading-relaxed">Master professional keyword research techniques, search intent analysis, topic clustering, and content planning to build topical authority and improve search visibility.</p>
+              </div>
+
+              {/* Point 6 */}
+              <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5">
+                <h3 className="text-sm font-black text-[#00f2ff] uppercase tracking-wide mb-1">SEO Content Writing & Optimization</h3>
+                <p className="text-xs text-zinc-400 leading-relaxed">Create high-quality, search-intent-driven content that ranks well in search engines while delivering value to readers. Learn on-page optimization, content structure, internal linking, and semantic optimization.</p>
+              </div>
+
+              {/* Point 7 */}
+              <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5">
+                <h3 className="text-sm font-black text-[#00f2ff] uppercase tracking-wide mb-1">Search Engine Fundamentals</h3>
+                <p className="text-xs text-zinc-400 leading-relaxed">Understand how search engines crawl, index, and rank websites. Learn the impact of Google's algorithm updates and ranking signals on website performance.</p>
+              </div>
+
+              {/* Grid Layout for SEO Deep Dives */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+                {/* On-Page */}
+                <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5 space-y-2">
+                  <h3 className="text-xs font-black text-[#3b82f6] uppercase tracking-wider">On-Page SEO Checklist</h3>
+                  <div className="flex flex-wrap gap-1.5">
+                    {["Title Tags", "Meta Descriptions", "URL Structure", "Heading Hierarchy", "Internal Linking", "Image Optimization", "Schema Markup", "Structured Data"].map((item, i) => (
+                      <span key={i} className="text-[10px] bg-white/5 border border-white/10 px-2 py-0.5 rounded text-zinc-300 font-medium">{item}</span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Technical */}
+                <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5 space-y-2">
+                  <h3 className="text-xs font-black text-[#3b82f6] uppercase tracking-wider">Technical SEO Blueprint</h3>
+                  <div className="flex flex-wrap gap-1.5">
+                    {["XML Sitemaps", "Robots.txt", "Canonical Tags", "Crawl Budget", "Indexing Issues", "Core Web Vitals", "Speed Optimization", "Mobile SEO"].map((item, i) => (
+                      <span key={i} className="text-[10px] bg-white/5 border border-white/10 px-2 py-0.5 rounded text-zinc-300 font-medium">{item}</span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Local */}
+                <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5 space-y-2">
+                  <h3 className="text-xs font-black text-[#3b82f6] uppercase tracking-wider">Local SEO Strategy</h3>
+                  <div className="flex flex-wrap gap-1.5">
+                    {["Google Business Profile", "Local Citations", "NAP Consistency", "Review Management", "Maps Rankings"].map((item, i) => (
+                      <span key={i} className="text-[10px] bg-white/5 border border-white/10 px-2 py-0.5 rounded text-zinc-300 font-medium">{item}</span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* International */}
+                <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5 space-y-2">
+                  <h3 className="text-xs font-black text-[#3b82f6] uppercase tracking-wider">International Markets</h3>
+                  <div className="flex flex-wrap gap-1.5">
+                    {["Hreflang Tags", "Multilingual SEO", "Geo-Targeting", "Global Content"].map((item, i) => (
+                      <span key={i} className="text-[10px] bg-white/5 border border-white/10 px-2 py-0.5 rounded text-zinc-300 font-medium">{item}</span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Link Building */}
+                <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5 space-y-2">
+                  <h3 className="text-xs font-black text-[#3b82f6] uppercase tracking-wider">Link Building & Digital PR</h3>
+                  <div className="flex flex-wrap gap-1.5">
+                    {["Guest Posting", "Outreach Campaigns", "Digital PR", "Resource Links", "Backlink Analysis"].map((item, i) => (
+                      <span key={i} className="text-[10px] bg-white/5 border border-white/10 px-2 py-0.5 rounded text-zinc-300 font-medium">{item}</span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Performance */}
+                <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5 space-y-2">
+                  <h3 className="text-xs font-black text-[#3b82f6] uppercase tracking-wider">Performance Metrics</h3>
+                  <div className="flex flex-wrap gap-1.5">
+                    {["LCP Optimization", "INP Metric", "CLS Reduction", "Loading Speed", "UX Core Signals"].map((item, i) => (
+                      <span key={i} className="text-[10px] bg-white/5 border border-white/10 px-2 py-0.5 rounded text-zinc-300 font-medium">{item}</span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Google Tools */}
+                <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5 space-y-2">
+                  <h3 className="text-xs font-black text-[#3b82f6] uppercase tracking-wider">Google Tools Mastery</h3>
+                  <div className="flex flex-wrap gap-1.5">
+                    {["Search Console", "Analytics (GA4)", "Tag Manager", "Keyword Planner", "PageSpeed Insights", "Trends"].map((item, i) => (
+                      <span key={i} className="text-[10px] bg-white/5 border border-white/10 px-2 py-0.5 rounded text-zinc-300 font-medium">{item}</span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Professional Tools */}
+                <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5 space-y-2">
+                  <h3 className="text-xs font-black text-[#3b82f6] uppercase tracking-wider">Professional Stack</h3>
+                  <div className="flex flex-wrap gap-1.5">
+                    {["Ahrefs Suite", "SEMrush Core", "Screaming Frog", "Rank Math", "Yoast Pro"].map((item, i) => (
+                      <span key={i} className="text-[10px] bg-white/5 border border-white/10 px-2 py-0.5 rounded text-zinc-300 font-medium">{item}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Point 16 */}
+              <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5">
+                <h3 className="text-sm font-black text-[#00f2ff] uppercase tracking-wide mb-1">Blogging & Content Marketing</h3>
+                <p className="text-xs text-zinc-400 leading-relaxed">Learn how to build authority through blogging by creating content calendars, optimizing articles, and developing long-term content marketing strategies.</p>
+              </div>
+
+              {/* Maintenance Group */}
+              <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5 space-y-2">
+                <h3 className="text-xs font-black text-[#3b82f6] uppercase tracking-wider">WordPress Security & Maintenance</h3>
+                <div className="flex flex-wrap gap-1.5">
+                  {["Website Backups", "Security Hardening", "Malware Protection", "Theme Management", "Performance Monitoring"].map((item, i) => (
+                    <span key={i} className="text-[10px] bg-white/5 border border-white/10 px-2 py-0.5 rounded text-zinc-300 font-medium">{item}</span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Freelancing Group */}
+              <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5 space-y-2">
+                <h3 className="text-xs font-black text-[#3b82f6] uppercase tracking-wider">Freelancing & Client Acquisition</h3>
+                <div className="flex flex-wrap gap-1.5">
+                  {["Fiverr & Upwork", "Proposal Writing", "Client Comm", "Portfolio Dev", "Pricing Matrix", "Project Management"].map((item, i) => (
+                    <span key={i} className="text-[10px] bg-white/5 border border-white/10 px-2 py-0.5 rounded text-zinc-300 font-medium">{item}</span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Monetization Group */}
+              <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5 space-y-2">
+                <h3 className="text-xs font-black text-[#3b82f6] uppercase tracking-wider">Website Monetization Channels</h3>
+                <div className="flex flex-wrap gap-1.5">
+                  {["Affiliate Marketing", "Display Ads", "Lead Generation", "Digital Products", "Service Matrix", "Content Monetization"].map((item, i) => (
+                    <span key={i} className="text-[10px] bg-white/5 border border-white/10 px-2 py-0.5 rounded text-zinc-300 font-medium">{item}</span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Point 20 */}
+              <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5">
+                <h3 className="text-sm font-black text-[#00f2ff] uppercase tracking-wide mb-1">Website Investment & Digital Assets</h3>
+                <p className="text-xs text-zinc-400 leading-relaxed">Understand the fundamentals of website valuation, buying, improving, and selling digital assets using established online marketplaces and best practices.</p>
+              </div>
+
+              {/* Point 21 */}
+              <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5">
+                <h3 className="text-sm font-black text-[#00f2ff] uppercase tracking-wide mb-1">Live Projects & Case Studies</h3>
+                <p className="text-xs text-zinc-400 leading-relaxed">Apply your knowledge by working on real-world WordPress and SEO projects, conducting website audits, implementing optimization strategies, and building a professional portfolio.</p>
+              </div>
+
+              {/* What you will achieve list */}
+              <div className="p-5 rounded-xl bg-gradient-to-r from-blue-950/40 to-cyan-950/40 border border-blue-500/20 space-y-3">
+                <h3 className="text-sm font-black text-white uppercase tracking-wider">What You'll Achieve</h3>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-zinc-300">
+                  {[
+                    "Build professional WordPress websites from scratch.",
+                    "Master modern SEO techniques for sustainable growth.",
+                    "Optimize websites for search engines & AI experiences.",
+                    "Improve website performance and user experience.",
+                    "Work with industry-standard SEO & analytics tools.",
+                    "Launch a freelancing career or digital agency.",
+                    "Build a portfolio through real-world projects.",
+                    "Earn an official Certificate of Completion."
+                  ].map((achieve, aIdx) => (
+                    <li key={aIdx} className="flex items-start gap-2">
+                      <span className="text-[#00f2ff] font-bold">✓</span>
+                      <span>{achieve}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+            </div>
+
+            {/* Modal Footer Area */}
+            <div className="p-4 border-t border-white/10 bg-black/20 text-center">
+              <button
+                onClick={() => setIsOpen(false)}
+                className="px-6 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-xs font-bold text-white uppercase tracking-wider transition-colors border border-white/10"
+              >
+                Close Outline
+              </button>
+            </div>
+
+          </div>
+        </div>
+      )}
+
+
+
+
+
 
       {/* ⚪ RIGHT SIDE: FORM / SUCCESS MATRIX */}
       <section className="w-full lg:w-[58%] bg-[#0b0f19] p-6 sm:p-12 lg:p-16 lg:pt-28 flex items-center relative border-t lg:border-t-0 border-white/5">

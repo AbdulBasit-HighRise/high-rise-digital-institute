@@ -6,6 +6,7 @@ import {
   Globe,
   Search,
   ArrowRight,
+  ArrowUpRight,
   Sparkles,
   ChevronDown,
   X,
@@ -17,58 +18,190 @@ export default function CoursesSection() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeModule, setActiveModule] = useState<number | null>(null);
 
-  // 📝 Roadmap FAQ Content Data Array
-  const roadmapModules = [
+ const courseModules = [
     {
-      title: "01. WordPress Core Development",
+      title: "WordPress Website Development",
       details: "Learn to build, customize, and manage professional WordPress websites from scratch. Gain hands-on experience creating business websites, blogs, eCommerce stores, and landing pages using modern themes, plugins, and page builders."
     },
     {
-      title: "02. Strategy, Niche Research & Search Fundamentals",
-      details: "Understand how search engines crawl, index, and rank websites. Learn the impact of Google's algorithm updates and ranking signals on website performance. Master identifying profitable niches, analyzing competitors, understanding user intent, and creating content strategies that help websites achieve long-term organic growth."
+      title: "Website Planning & Niche Research",
+      details: "Learn how to identify profitable niches, analyze competitors, understand user intent, and create content strategies that help websites achieve long-term organic growth."
     },
     {
-      title: "03. AI-Powered & AI Search Optimization (AEO)",
-      details: "Discover how to leverage AI tools to streamline keyword research, content planning, optimization, and workflow automation while maintaining high-quality, search-focused content. Understand how AI-powered search platforms work and learn strategies to optimize content for AI-generated answers, conversational search, and emerging search experiences."
+      title: "AI-Powered SEO",
+      details: "Discover how to leverage AI tools to streamline keyword research, content planning, optimization, and workflow automation while maintaining high-quality, search-focused content."
     },
     {
-      title: "04. Keyword Research & SEO Content Writing",
-      details: "Master professional keyword research techniques, search intent analysis, topic clustering, and content planning to build topical authority. Create high-quality, search-intent-driven content that ranks well in search engines while delivering value to readers. Learn on-page optimization, content structure, internal linking, and semantic optimization."
+      title: "AI Search Optimization (Answer Engine Optimization)",
+      details: "Understand how AI-powered search platforms work and learn strategies to optimize content for AI-generated answers, conversational search, and emerging search experiences."
     },
     {
-      title: "05. On-Page SEO Checklist",
-      details: "Optimize every page for maximum visibility through structural elements: Title Tags, Meta Descriptions, URL Structure, Heading Hierarchy (H1-H6), Internal Linking, Image Optimization (Alt text/WebP), and advanced Schema Markup / Structured Data integration."
+      title: "Keyword Research & Content Strategy",
+      details: "Master professional keyword research techniques, search intent analysis, topic clustering, and content planning to build topical authority and improve search visibility."
     },
     {
-      title: "06. Technical SEO, Speed & Core Web Vitals",
-      details: "Develop expertise in technical website optimization, including XML Sitemaps, Robots.txt, Canonical Tags, Crawl Budget Optimization, and Indexing Issues. Master PageSpeed Optimization and Core Web Vitals metrics including Largest Contentful Paint (LCP), Interaction to Next Paint (INP), Cumulative Layout Shift (CLS), and Mobile SEO configurations."
+      title: "SEO Content Writing & Optimization",
+      details: "Create high-quality, search-intent-driven content that ranks well in search engines while delivering value to readers. Learn on-page optimization, content structure, internal linking, and semantic optimization."
     },
     {
-      title: "07. Local & International SEO Expansion",
-      details: "Improve local visibility through Google Business Profile Optimization, Local Citations, NAP Consistency, Local Keyword Research, Review Management, and Google Maps Rankings. Expand websites into global markets using Hreflang Implementation, Multilingual SEO, Geo-Targeting, and Country-Specific Content Strategies."
+      title: "Search Engine Fundamentals",
+      details: "Understand how search engines crawl, index, and rank websites. Learn the impact of Google's algorithm updates and ranking signals on website performance."
     },
     {
-      title: "08. Link Building & Digital PR",
-      details: "Build sustainable domain authority through ethical white-hat SEO practices, including Guest Posting, targeted Outreach Campaigns, Digital PR, Resource Link Building, Competitor Backlink Analysis, and strategic Authority Building Frameworks."
+      title: "On-Page SEO",
+      details: "Optimize every page for maximum visibility through:",
+      points: [
+        "Title Tags",
+        "Meta Descriptions",
+        "URL Structure",
+        "Heading Hierarchy",
+        "Internal Linking",
+        "Image Optimization",
+        "Schema Markup",
+        "Structured Data"
+      ]
     },
     {
-      title: "09. Industry Google & Professional SEO Tools",
-      details: "Gain practical hands-on experience using industry-standard environments. Master Google Tools: Google Search Console, Google Analytics 4 (GA4), Google Tag Manager, Google Keyword Planner, PageSpeed Insights, and Google Trends. Learn Professional Software: Ahrefs, SEMrush, Screaming Frog, Rank Math SEO, and Yoast SEO."
+      title: "Technical SEO",
+      details: "Develop expertise in technical website optimization, including:",
+      points: [
+        "XML Sitemaps",
+        "Robots.txt",
+        "Canonical Tags",
+        "Crawl Budget Optimization",
+        "Indexing Issues",
+        "Core Web Vitals",
+        "Website Speed Optimization",
+        "Mobile SEO"
+      ]
     },
     {
-      title: "10. Blogging, Security & WordPress Maintenance",
-      details: "Learn how to build authority through blogging by creating content calendars, optimizing articles, and developing long-term content marketing strategies. Protect assets through automated Website Backups, Security Hardening, Malware Protection, Plugin & Theme Management, and continuous Performance Monitoring."
+      title: "Local SEO",
+      details: "Learn how to improve visibility for local businesses through:",
+      points: [
+        "Google Business Profile Optimization",
+        "Local Citations",
+        "NAP Consistency",
+        "Local Keyword Research",
+        "Review Management",
+        "Google Maps Rankings"
+      ]
     },
     {
-      title: "11. Freelancing, Monetization & Digital Assets Valuation",
-      details: "Build a successful freelancing career via Fiverr & Upwork Profile Optimization, Proposal Writing, Client Communication, Portfolio Development, Pricing, and Project Management. Explore multiple revenue opportunities: Affiliate Marketing, Display Advertising, Lead Generation, Digital Products, and Service-Based Assets. Understand the fundamentals of website valuation, buying, improving, and selling digital assets using established online marketplaces."
+      title: "International SEO",
+      details: "Expand websites into global markets using:",
+      points: [
+        "Hreflang Implementation",
+        "Multilingual SEO",
+        "Geo-Targeting",
+        "Country-Specific Content Strategies"
+      ]
     },
     {
-      title: "12. Live Projects & Certification Milestones",
-      details: "Apply your knowledge by working on real-world WordPress and SEO projects, conducting live website audits, implementing optimization strategies, and building a professional portfolio. What You'll Achieve: Build professional sites, master sustainable organic growth, optimize for AI search, launch a freelancing career/agency, and earn a verified Certificate of Completion upon successfully finishing the program."
+      title: "Link Building & Digital PR",
+      details: "Build sustainable authority through ethical SEO practices, including:",
+      points: [
+        "Guest Posting",
+        "Outreach Campaigns",
+        "Digital PR",
+        "Resource Link Building",
+        "Competitor Backlink Analysis",
+        "Authority Building Strategies"
+      ]
+    },
+    {
+      title: "Performance & Core Web Vitals",
+      details: "Optimize website performance for both users and search engines by improving:",
+      points: [
+        "Largest Contentful Paint (LCP)",
+        "Interaction to Next Paint (INP)",
+        "Cumulative Layout Shift (CLS)",
+        "Website Loading Speed",
+        "User Experience (UX)"
+      ]
+    },
+    {
+      title: "Google SEO Tools",
+      details: "Master industry-standard tools including:",
+      points: [
+        "Google Search Console",
+        "Google Analytics 4 (GA4)",
+        "Google Tag Manager",
+        "Google Keyword Planner",
+        "PageSpeed Insights",
+        "Google Trends"
+      ]
+    },
+    {
+      title: "Professional SEO Tools",
+      details: "Gain practical experience using:",
+      points: [
+        "Ahrefs",
+        "SEMrush",
+        "Screaming Frog",
+        "Rank Math SEO",
+        "Yoast SEO"
+      ]
+    },
+    {
+      title: "Blogging & Content Marketing",
+      details: "Learn how to build authority through blogging by creating content calendars, optimizing articles, and developing long-term content marketing strategies."
+    },
+    {
+      title: "WordPress Security & Maintenance",
+      details: "Protect and maintain WordPress websites through:",
+      points: [
+        "Website Backups",
+        "Security Hardening",
+        "Malware Protection",
+        "Plugin & Theme Management",
+        "Performance Monitoring"
+      ]
+    },
+    {
+      title: "Freelancing & Client Acquisition",
+      details: "Build a successful freelancing career by learning:",
+      points: [
+        "Fiverr & Upwork Profile Optimization",
+        "Proposal Writing",
+        "Client Communication",
+        "Portfolio Development",
+        "Pricing Strategies",
+        "Project Management"
+      ]
+    },
+    {
+      title: "Website Monetization",
+      details: "Explore multiple revenue opportunities through:",
+      points: [
+        "Affiliate Marketing",
+        "Display Advertising",
+        "Lead Generation",
+        "Digital Products",
+        "Service-Based Websites",
+        "Content Monetization"
+      ]
+    },
+    {
+      title: "Website Investment & Digital Assets",
+      details: "Understand the fundamentals of website valuation, buying, improving, and selling digital assets using established online marketplaces and best practices."
+    },
+    {
+      title: "Live Projects & Case Studies",
+      details: "Apply your knowledge by working on real-world WordPress and SEO projects, conducting website audits, implementing optimization strategies, and building a professional portfolio."
     }
   ];
 
+  const achievements = [
+    "Build professional WordPress websites from scratch.",
+    "Master modern SEO techniques for sustainable organic growth.",
+    "Optimize websites for search engines and AI-driven search experiences.",
+    "Improve website performance and user experience.",
+    "Work with industry-standard SEO and analytics tools.",
+    "Launch a freelancing career or start your own digital agency.",
+    "Build a professional portfolio through real-world projects.",
+    "Earn a Certificate of Completion upon successfully finishing the program."
+  ];
   return (
     <section
       id="courses"
@@ -225,17 +358,14 @@ export default function CoursesSection() {
                 </div>
               </div>
 
-              <Link href="/contact" className="w-full block">
+             <Link href="/contact" className="w-full sm:w-auto">
                 <button
-                  className="group relative overflow-hidden w-full h-[48px] 2xl:h-[56px] rounded-[5px] bg-white text-zinc-950 font-bold text-[11px] 2xl:text-[13px] tracking-[2px] uppercase flex items-center justify-center gap-2 transition-all duration-300 shadow-md border border-zinc-200/50 hover:border-transparent active:scale-[0.98] cursor-pointer"
+                  className="group relative overflow-hidden w-full sm:min-w-[160px] 2xl:min-w-[200px] h-[48px] 2xl:h-[56px] rounded-full bg-white text-black font-black text-[11px] 2xl:text-[13px] tracking-[2px] flex items-center justify-center gap-2 transition-all duration-500 shadow-lg active:scale-95"
                 >
-                  {/* Professional Sliding Gradient Overlay */}
-                  <div className="absolute inset-0 w-0 bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 transition-all duration-300 ease-out group-hover:w-full" />
-
-                  {/* High-Contrast Clear Text Content */}
-                  <span className="relative z-10 flex items-center gap-2 text-zinc-950 group-hover:text-white transition-colors duration-200 antialiased">
-                    Enroll Now
-                    <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-300 ease-out" />
+                  <div className="absolute inset-0 w-0 bg-gradient-to-r from-blue-500 to-cyan-400 transition-all duration-500 ease-out group-hover:w-full" />
+                  <span className="relative z-10 flex items-center gap-2 group-hover:text-white transition-colors duration-500">
+                    Enroll Noe
+                    <ArrowUpRight size={14} className="2xl:w-5 2xl:h-5 group-hover:rotate-45 transition-transform duration-300" />
                   </span>
                 </button>
               </Link>
@@ -245,70 +375,97 @@ export default function CoursesSection() {
 
         </div>
 
-        {isModalOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md">
-            <div className="relative w-full max-w-xl lg:max-w-3xl xl:max-w-4xl 2xl:max-w-5xl bg-[#0b0f19] border border-white/10 rounded-2xl shadow-2xl p-5 md:p-8 lg:p-10 overflow-hidden flex flex-col max-h-[85vh] transition-all duration-300">
+      {isModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md">
+          <div className="relative w-full max-w-xl lg:max-w-3xl xl:max-w-4xl 2xl:max-w-5xl bg-[#0b0f19] border border-white/10 rounded-2xl shadow-2xl p-5 md:p-8 lg:p-10 overflow-hidden flex flex-col max-h-[85vh] transition-all duration-300">
 
-              {/* Modal Header */}
-              <div className="flex items-center justify-between border-b border-white/10 pb-5 mb-5">
-                <div className="text-left">
-                  <span className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-blue-400 block mb-1">Ecosystem Roadmap</span>
-                  <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-black text-white uppercase italic tracking-wide">SEO Mastery Course Modules</h3>
-                </div>
-                <button
-                  onClick={() => setIsModalOpen(false)}
-                  className="p-2 rounded-lg bg-zinc-900 border border-white/10 text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors cursor-pointer"
-                >
-                  <X className="w-5 h-5" />
-                </button>
+            {/* Modal Header */}
+            <div className="flex items-center justify-between border-b border-white/10 pb-5 mb-5">
+              <div className="text-left">
+                <span className="text-[10px] sm:text-[25px] font-black  tracking-widest text-blue-400 block mb-1">
+                  WordPress & Advanced SEO Training Program
+                </span>
+                <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-black text-white tracking-wide">
+                  Course Modules
+                </h3>
               </div>
+              <button
+                onClick={() => setIsModalOpen(false)}
+                className="p-2 rounded-lg bg-zinc-900 border border-white/10 text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors cursor-pointer"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
 
-              {/* Modal Content - FAQ Accordions */}
-              <div className="flex-1 overflow-y-auto space-y-4 pr-2 scrollbar-thin scrollbar-thumb-zinc-800 text-left">
-                {roadmapModules.map((module, index) => {
-                  const isOpen = activeModule === index;
-                  return (
-                    <div
-                      key={index}
-                      className="border border-white/5 rounded-xl bg-[#0d1220]/60 overflow-hidden transition-all duration-300"
+            {/* Modal Content - FAQ Accordions */}
+            <div className="flex-1 overflow-y-auto space-y-4 pr-2 scrollbar-thin scrollbar-thumb-zinc-800 text-left">
+              {courseModules.map((module, index) => {
+                const isOpen = activeModule === index;
+                return (
+                  <div
+                    key={index}
+                    className="border border-white/5 rounded-xl bg-[#0d1220]/60 overflow-hidden transition-all duration-300"
+                  >
+                    <button
+                      onClick={() => setActiveModule(isOpen ? null : index)}
+                      className="w-full flex items-center justify-between p-4 md:p-5 text-left font-black text-xs sm:text-sm md:text-base text-zinc-200 hover:text-blue-400 hover:bg-white/[0.01] transition-all cursor-pointer select-none"
                     >
-                      <button
-                        onClick={() => setActiveModule(isOpen ? null : index)}
-                        className="w-full flex items-center justify-between p-4 md:p-5 text-left font-black text-xs sm:text-sm md:text-base text-zinc-200 hover:text-blue-400 hover:bg-white/[0.01] transition-all cursor-pointer select-none"
-                      >
-                        <span className={`${isOpen ? 'text-blue-400' : ''}`}>{module.title}</span>
-                        <ChevronDown className={`w-4 h-4 md:w-5 md:h-5 text-zinc-500 transition-transform duration-300 shrink-0 ml-4 ${isOpen ? 'rotate-180 text-blue-400' : ''}`} />
-                      </button>
+                      <span className={`${isOpen ? 'text-blue-400' : ''}`}>{module.title}</span>
+                      <ChevronDown className={`w-4 h-4 md:w-5 md:h-5 text-zinc-500 transition-transform duration-300 shrink-0 ml-4 ${isOpen ? 'rotate-180 text-blue-400' : ''}`} />
+                    </button>
 
-                      <div className={`transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? 'max-h-[500px] border-t border-white/5' : 'max-h-0'}`}>
-                        <p className="text-zinc-300 text-xs sm:text-sm md:text-base font-medium leading-relaxed p-4 md:p-5 opacity-90 whitespace-pre-line">
-                          {module.details}
-                        </p>
+                    <div className={`transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? 'max-h-[800px] border-t border-white/5' : 'max-h-0'}`}>
+                      <div className="p-4 md:p-5 text-zinc-300 text-xs sm:text-sm md:text-base font-medium leading-relaxed opacity-90">
+                        {module.details && <p className="whitespace-pre-line mb-3">{module.details}</p>}
+                        
+                        {/* Render Nested Points Safely if they exist */}
+                        {module.points && (
+                          <ul className="list-disc pl-5 space-y-1.5 text-zinc-400">
+                            {module.points.map((point, pIdx) => (
+                              <li key={pIdx}>{point}</li>
+                            ))}
+                          </ul>
+                        )}
                       </div>
                     </div>
-                  );
-                })}
-              </div>
+                  </div>
+                );
+              })}
 
-              {/* Modal Footer Cross Button */}
+              {/* 🏆 What You'll Achieve Section Embedded Uniformly */}
+              <div className="mt-8 pt-6 border-t border-white/10 text-left">
+                <h4 className="text-sm sm:text-base md:text-lg font-black text-white uppercase tracking-wider mb-4">
+                  What You'll Achieve
+                </h4>
+                <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm text-zinc-400">
+                  {achievements.map((achievement, idx) => (
+                    <li key={idx} className="flex items-start gap-2">
+                      <span className="text-blue-400 font-bold mt-0.5">•</span>
+                      <span>{achievement}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* Modal Footer Enrollment Button */}
+            <div className="pt-5 mt-5 border-t border-white/10">
               <Link href="/contact" className="w-full block">
                 <button
-                  className="group relative overflow-hidden w-full h-[48px] 2xl:h-[56px] rounded-[5px] bg-white text-zinc-950 font-bold text-[11px] 2xl:text-[13px] tracking-[2px] uppercase flex items-center justify-center gap-2 transition-all duration-300 shadow-md border border-zinc-200/50 hover:border-transparent active:scale-[0.98] cursor-pointer"
+                  className="group relative overflow-hidden w-full h-[48px] 2xl:h-[56px] rounded-full bg-white text-zinc-950 font-black text-[11px] 2xl:text-[13px] tracking-[2px] uppercase flex items-center justify-center gap-2 transition-all duration-500 shadow-lg active:scale-95 cursor-pointer"
                 >
-                  {/* Professional Sliding Gradient Overlay */}
-                  <div className="absolute inset-0 w-0 bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 transition-all duration-300 ease-out group-hover:w-full" />
-
-                  {/* High-Contrast Clear Text Content */}
-                  <span className="relative z-10 flex items-center gap-2 text-zinc-950 group-hover:text-white transition-colors duration-200 antialiased">
+                  <div className="absolute inset-0 w-0 bg-gradient-to-r from-blue-500 to-cyan-400 transition-all duration-500 ease-out group-hover:w-full" />
+                  <span className="relative z-10 flex items-center gap-2 text-zinc-950 group-hover:text-white transition-colors duration-500 ease-out antialiased">
                     Enroll Now
                     <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-300 ease-out" />
                   </span>
                 </button>
               </Link>
-
             </div>
+
           </div>
-        )}
+        </div>
+      )}
       </div>
     </section>
   );

@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image"; 
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react"; 
+import { Menu, X ,ArrowUpRight} from "lucide-react"; 
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -130,53 +130,52 @@ export default function Navbar() {
           })}
       </div>
 
-      {/* ACTION BUTTONS */}
-      <div className="flex items-center gap-3 z-50 shrink-0">
-        
-        {/* LOGIN BUTTON: WHITE -> GRADIENT */}
-      {/* 🔐 LOGIN BUTTON: WHITE -> GRADIENT */}
-<a 
-  href="https://lms.highrisedigital.io" 
-  target="_blank" 
-  rel="noopener noreferrer"
-  className="group relative overflow-hidden hidden lg:flex items-center justify-center font-bold text-[10px] uppercase tracking-[2px] h-[38px] px-5 rounded-[5px] bg-white text-zinc-950 border border-zinc-200/50 hover:border-transparent shadow-md transition-all duration-300 ease-out active:scale-[0.98] cursor-pointer no-underline"
->
-  {/* Hover state gradient background slider */}
-  <div className="absolute inset-0 w-0 bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 transition-all duration-300 ease-out group-hover:w-full" />
+    {/* ⚙️ ACTION BUTTONS - PERFECTLY MATCHED TO ROUNDED-FULL MAIN BUTTONS */}
+<div className="flex items-center gap-4 2xl:gap-5 z-50 shrink-0">
   
-  <span className="relative z-10 flex items-center gap-1.5 text-zinc-950 group-hover:text-white transition-colors duration-200 ease-out antialiased">
-    Login
-    <svg className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3.5">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-    </svg>
-  </span>
-</a>
+  {/* 🔐 LOGIN BUTTON: WHITE -> GRADIENT (ROUNDED-FULL) */}
+  <a 
+    href="https://lms.highrisedigital.io" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="group relative overflow-hidden hidden lg:flex items-center justify-center font-black text-[11px] 2xl:text-[13px] tracking-[2px] uppercase h-[48px] 2xl:h-[56px] px-6 sm:min-w-[160px] 2xl:min-w-[200px] rounded-full bg-white text-zinc-950 shadow-lg transition-all duration-500 ease-out active:scale-95 cursor-pointer no-underline"
+  >
+    {/* Blue to Cyan Hover Effect Gradient Layer */}
+    <div className="absolute inset-0 w-0 bg-gradient-to-r from-blue-500 to-cyan-400 transition-all duration-500 ease-out group-hover:w-full" />
+    
+    <span className="relative z-10 flex items-center gap-2 text-zinc-950 group-hover:text-white transition-colors duration-500 ease-out antialiased">
+      Login
+      <svg className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3.5">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+      </svg>
+    </span>
+  </a>
 
-{/* ⚡ ENROLL NOW BUTTON: GRADIENT -> WHITE */}
-<Link 
-  href="/contact"
-  onClick={(e) => handleScrollToSection(e, "/contact")}
-  className="group relative overflow-hidden hidden lg:flex items-center justify-center font-bold text-[10px] uppercase tracking-[2px] h-[38px] px-5 rounded-[5px] bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 text-white border border-transparent shadow-md transition-all duration-300 ease-out active:scale-[0.98] cursor-pointer no-underline"
->
-  {/* Hover state white background slider */}
-  <div className="absolute inset-0 w-0 bg-white transition-all duration-300 ease-out group-hover:w-full" />
-  
-  <span className="relative z-10 flex items-center gap-1.5 text-white group-hover:text-zinc-950 transition-colors duration-200 ease-out antialiased">
-    Enroll Now
-    <svg className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3.5">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-    </svg>
-  </span>
-</Link>
+  {/* ⚡ ENROLL NOW BUTTON: GRADIENT -> WHITE (ROUNDED-FULL) */}
+  <Link 
+    href="/contact"
+    onClick={(e) => handleScrollToSection(e, "/contact")}
+    className="group relative overflow-hidden hidden lg:flex items-center justify-center font-black text-[11px] 2xl:text-[13px] tracking-[2px] uppercase h-[48px] 2xl:h-[56px] px-6 sm:min-w-[160px] 2xl:min-w-[200px] rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 text-white shadow-lg transition-all duration-500 ease-out active:scale-95 cursor-pointer no-underline"
+  >
+    {/* White Hover Effect Background Layer */}
+    <div className="absolute inset-0 w-0 bg-white transition-all duration-500 ease-out group-hover:w-full" />
+    
+    <span className="relative z-10 flex items-center gap-2 text-white group-hover:text-zinc-950 transition-colors duration-500 ease-out antialiased">
+      Enroll Now
+      <svg className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3.5">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+      </svg>
+    </span>
+  </Link>
 
-        {/* MOBILE BURGER MENU */}
-        <button 
-          onClick={() => setIsOpen(!isOpen)} 
-          className="lg:hidden text-white p-2 focus:outline-none rounded-xl bg-white/[0.02] border border-white/10 backdrop-blur-md"
-        >
-          {isOpen ? <X size={18} /> : <Menu size={18} />}
-        </button>
-      </div>
+  {/* 📱 MOBILE BURGER MENU (Rounded Capsule UI Sync) */}
+  <button 
+    onClick={() => setIsOpen(!isOpen)} 
+    className="lg:hidden text-white p-2 focus:outline-none rounded-full bg-white/[0.02] border border-white/10 backdrop-blur-md h-[48px] w-[48px] flex items-center justify-center transition-all duration-300 active:scale-95 cursor-pointer"
+  >
+    {isOpen ? <X size={20} /> : <Menu size={20} />}
+  </button>
+</div>
 
       {/* MOBILE RESPONSIVE ACCORDION */}
       {isOpen && (
@@ -205,13 +204,17 @@ export default function Navbar() {
             >
               Login
             </a>
-            <Link 
-              href="/contact"
-              onClick={(e) => handleScrollToSection(e, "/contact")}
-              className="block text-center w-full bg-zinc-900 border border-white/10 text-white font-black text-xs uppercase tracking-wider py-3.5 rounded-xl shadow-lg no-underline"
-            >
-              Enroll Now
-            </Link>
+            <Link href="/contact" className="w-full sm:w-auto">
+                <button
+                  className="group relative overflow-hidden w-full sm:min-w-[160px] 2xl:min-w-[200px] h-[48px] 2xl:h-[56px] rounded-full bg-white text-black font-black text-[11px] 2xl:text-[13px] tracking-[2px] flex items-center justify-center gap-2 transition-all duration-500 shadow-lg active:scale-95"
+                >
+                  <div className="absolute inset-0 w-0 bg-gradient-to-r from-blue-500 to-cyan-400 transition-all duration-500 ease-out group-hover:w-full" />
+                  <span className="relative z-10 flex items-center gap-2 group-hover:text-white transition-colors duration-500">
+                    Enroll Now
+                    <ArrowUpRight size={14} className="2xl:w-5 2xl:h-5 group-hover:rotate-45 transition-transform duration-300" />
+                  </span>
+                </button>
+              </Link>
           </div>
         </div>
       )}

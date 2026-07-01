@@ -22,48 +22,34 @@ export default function About() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 xl:gap-16 items-center">
 
             {/* 🖼️ LEFT: PREMIUM IMAGE / VIDEO CASE LAYER */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7, ease: "easeOut" }}
-              viewport={{ once: true }}
-              className="relative flex items-center justify-center order-2 lg:order-1 w-full lg:col-span-6"
-            >
-              {/* Outer Ambient Border Glow */}
-              <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 blur-xl rounded-[2.5rem] opacity-70 pointer-events-none" />
-              
-              {/* Main Showcase Frame Box */}
-              <div 
-                onClick={() => setIsVideoOpen(true)}
-                className="relative z-10 w-full p-3 rounded-[2rem] bg-zinc-900/40 border border-white/10 backdrop-blur-md shadow-2xl overflow-hidden aspect-[4/3] sm:aspect-video lg:aspect-[1.15/1] xl:aspect-[1.2/1] max-w-full sm:max-w-[550px] lg:max-w-none flex items-center justify-center group cursor-pointer"
-              >
-                <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/10 via-transparent to-cyan-600/10 opacity-60 pointer-events-none" />
-                
-                {/* Image Wrapper Engine */}
-                <div className="relative w-full h-full rounded-2xl overflow-hidden bg-black/40 border border-white/5">
-                  <Image
-                    src="/about11.jpg"
-                    alt="HRD Institute - Practical Training"
-                    fill
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                    sizes="(max-w-1280px) 100vw, 50vw"
-                    priority
-                  />
-                  {/* Glass Dark Overlay Tint */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-90 transition-opacity group-hover:opacity-100" />
-                  
-                  {/* Dynamic Floating Play Glass Trigger */}
-                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-                    <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-blue-500/10 border border-blue-400/40 text-blue-400 flex items-center justify-center backdrop-blur-md shadow-lg shadow-blue-500/20 group-hover:bg-gradient-to-r group-hover:from-blue-500 group-hover:to-cyan-400 group-hover:text-black group-hover:border-transparent group-hover:scale-110 transition-all duration-500">
-                      <Play size={20} className="fill-current ml-1 group-hover:text-black transition-colors" />
-                    </div>
-                    <span className="text-[10px] uppercase font-black tracking-[2px] text-zinc-400 group-hover:text-white transition-colors duration-300">
-                      Click to Play Blueprint
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
+       <motion.div
+  initial={{ opacity: 0, x: -30 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.7, ease: "easeOut" }}
+  viewport={{ once: true }}
+  className="relative flex items-center justify-center order-2 lg:order-1 w-full lg:col-span-6"
+>
+  {/* Outer Ambient Border Glow */}
+  <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 blur-xl rounded-[2.5rem] opacity-70 pointer-events-none" />
+  
+  {/* Main Showcase Frame Box - Converted to Direct Video Engine */}
+  <div 
+    className="relative z-10 w-full p-3 rounded-[2rem] bg-zinc-900/40 border border-white/10 backdrop-blur-md shadow-2xl overflow-hidden aspect-[4/3] sm:aspect-video lg:aspect-[1.15/1] xl:aspect-[1.2/1] max-w-full sm:max-w-[550px] lg:max-w-none flex items-center justify-center"
+  >
+    <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/10 via-transparent to-cyan-600/10 opacity-60 pointer-events-none z-20" />
+    
+    {/* 📺 Direct Autoplay Inline Video Frame */}
+    <div className="relative w-full h-full rounded-2xl overflow-hidden bg-black/40 border border-white/5 z-10">
+      <iframe
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1&loop=1&playlist=dQw4w9WgXcQ&playsinline=1"
+        title="HRD Institute Blueprint Video"
+        className="w-full h-full border-0 absolute inset-0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      />
+    </div>
+  </div>
+</motion.div>
 
             {/* 📝 RIGHT: TEXT CONTENT & ACCORDION MATRIX */}
             <div className="space-y-6 md:space-y-7 order-1 lg:order-2 lg:col-span-6 flex flex-col justify-center w-full text-left">
@@ -124,7 +110,7 @@ export default function About() {
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
-
+                   
                     {/* Feature Text */}
                     <div className="flex flex-col gap-1 min-w-0">
                       <h4 className="text-[17px] sm:text-[20px] font-black text-white  tracking-wide group-hover:text-[#00f2ff] transition-colors duration-200">
