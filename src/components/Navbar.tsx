@@ -130,50 +130,50 @@ export default function Navbar() {
           })}
       </div>
 
-    {/* ⚙️ ACTION BUTTONS - PERFECTLY MATCHED TO ROUNDED-FULL MAIN BUTTONS */}
-<div className="flex items-center gap-4 2xl:gap-5 z-50 shrink-0">
+   {/* ⚙️ ACTION BUTTONS - PERFECTLY MATCHED TO ROUNDED-FULL MAIN BUTTONS */}
+<div className="flex items-center gap-3 2xl:gap-4 z-50 shrink-0">
   
-  {/* 🔐 LOGIN BUTTON: WHITE -> GRADIENT (ROUNDED-FULL) */}
+  {/* 🔐 LOGIN BUTTON: WHITE -> GRADIENT (SMART & SLEEK) */}
   <a 
     href="https://lms.highrisedigital.io" 
     target="_blank" 
     rel="noopener noreferrer"
-    className="group relative overflow-hidden hidden lg:flex items-center justify-center font-black text-[11px] 2xl:text-[13px] tracking-[2px] uppercase h-[48px] 2xl:h-[56px] px-6 sm:min-w-[160px] 2xl:min-w-[200px] rounded-full bg-white text-zinc-950 shadow-lg transition-all duration-500 ease-out active:scale-95 cursor-pointer no-underline"
+    className="group relative overflow-hidden hidden lg:flex items-center justify-center font-black text-[10px] 2xl:text-[12px] tracking-[1px] uppercase h-[42px] 2xl:h-[48px] px-5 sm:min-w-[130px] 2xl:min-w-[160px] rounded-full bg-white text-zinc-950 shadow-md transition-all duration-500 ease-out active:scale-95 cursor-pointer no-underline"
   >
     {/* Blue to Cyan Hover Effect Gradient Layer */}
     <div className="absolute inset-0 w-0 bg-gradient-to-r from-blue-500 to-cyan-400 transition-all duration-500 ease-out group-hover:w-full" />
     
-    <span className="relative z-10 flex items-center gap-2 text-zinc-950 group-hover:text-white transition-colors duration-500 ease-out antialiased">
+    <span className="relative z-10 flex items-center gap-1.5 text-zinc-950 group-hover:text-white transition-colors duration-500 ease-out antialiased">
       Login
-      <svg className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3.5">
+      <svg className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3.5">
         <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
       </svg>
     </span>
   </a>
 
-  {/* ⚡ ENROLL NOW BUTTON: GRADIENT -> WHITE (ROUNDED-FULL) */}
+  {/* ⚡ ENROLL NOW BUTTON: GRADIENT -> WHITE (SMART & SLEEK) */}
   <Link 
     href="/contact"
     onClick={(e) => handleScrollToSection(e, "/contact")}
-    className="group relative overflow-hidden hidden lg:flex items-center justify-center font-black text-[11px] 2xl:text-[13px] tracking-[2px] uppercase h-[48px] 2xl:h-[56px] px-6 sm:min-w-[160px] 2xl:min-w-[200px] rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 text-white shadow-lg transition-all duration-500 ease-out active:scale-95 cursor-pointer no-underline"
+    className="group relative overflow-hidden hidden lg:flex items-center justify-center font-black text-[10px] 2xl:text-[12px] tracking-[1px] uppercase h-[42px] 2xl:h-[48px] px-5 sm:min-w-[130px] 2xl:min-w-[160px] rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 text-white shadow-md transition-all duration-500 ease-out active:scale-95 cursor-pointer no-underline"
   >
     {/* White Hover Effect Background Layer */}
     <div className="absolute inset-0 w-0 bg-white transition-all duration-500 ease-out group-hover:w-full" />
     
-    <span className="relative z-10 flex items-center gap-2 text-white group-hover:text-zinc-950 transition-colors duration-500 ease-out antialiased">
+    <span className="relative z-10 flex items-center gap-1.5 text-white group-hover:text-zinc-950 transition-colors duration-500 ease-out antialiased">
       Enroll Now
-      <svg className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3.5">
+      <svg className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3.5">
         <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
       </svg>
     </span>
   </Link>
 
-  {/* 📱 MOBILE BURGER MENU (Rounded Capsule UI Sync) */}
+  {/* 📱 MOBILE BURGER MENU (Sleek Rounded UI Sync) */}
   <button 
     onClick={() => setIsOpen(!isOpen)} 
-    className="lg:hidden text-white p-2 focus:outline-none rounded-full bg-white/[0.02] border border-white/10 backdrop-blur-md h-[48px] w-[48px] flex items-center justify-center transition-all duration-300 active:scale-95 cursor-pointer"
+    className="lg:hidden text-white p-2 focus:outline-none rounded-full bg-white/[0.02] border border-white/10 backdrop-blur-md h-[42px] w-[42px] flex items-center justify-center transition-all duration-300 active:scale-95 cursor-pointer"
   >
-    {isOpen ? <X size={20} /> : <Menu size={20} />}
+    {isOpen ? <X size={18} /> : <Menu size={18} />}
   </button>
 </div>
 
