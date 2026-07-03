@@ -130,20 +130,15 @@ export default function StudentEnrollmentForm() {
           <div className="space-y-4 max-w-xl relative z-10 text-left shrink-0 mx-auto w-full">
             <div className="w-16 h-[4px] bg-[#00f2ff] rounded-full shadow-[0_0_15px_rgba(0,242,255,0.6)]" />
 
-            <h1 className="text-[2rem] sm:text-[2.5rem] xl:text-[3rem] font-black tracking-tighter uppercase leading-[1.02] text-white">
+            <h1 className="text-[2rem] sm:text-[2rem] xl:text-[2rem] font-black tracking-tighter uppercase leading-[1.02] text-white">
               LMS REGISTRATION <br />
               <span className="bg-gradient-to-r from-[#00f2ff] via-[#00a2ff] to-[#3b82f6] bg-clip-text text-transparent drop-shadow-sm">
                 START LEARNING
-              </span> <br /> 📚💡
+              </span> 
             </h1>
-
-            <p className="text-xs sm:text-sm xl:text-base font-normal leading-relaxed text-zinc-300 max-w-md border-l-2 border-[#00f2ff] pl-4">
-              Create your secure industrial account to access top-tier frameworks, monitor milestones, and lock elite freelancing career paths.
-            </p>
-
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-white/[0.02] border border-white/10 text-[10px] sm:text-xs font-bold text-zinc-400 uppercase tracking-wider">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#00f2ff] animate-pulse" />
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-white/[0.02] border border-white/10 text-[10px] sm:text-xs font-bold text-white  tracking-wider">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#00f2ff] text-white animate-pulse" />
                 WordPress & Advanced SEO Training Program Included
               </div>
             </div>
@@ -153,10 +148,8 @@ export default function StudentEnrollmentForm() {
           <div className="w-full max-w-xl border-t border-white/10 pt-4 mt-6 mb-6 relative z-10 text-left flex flex-col mx-auto shrink-0">
             
             <div className="mb-3 shrink-0">
-              <span className="text-[9px] font-bold text-[#00f2ff] tracking-widest uppercase bg-cyan-500/10 px-2 py-0.5 rounded">
-                Course Curriculum
-              </span>
-              <h2 className="text-sm sm:text-base xl:text-lg font-black text-white uppercase tracking-tight mt-1">
+            
+              <h2 className="text-sm sm:text-base xl:text-lg font-black text-white tracking-tight mt-1">
                 Program Syllabus Breakdown
               </h2>
             </div>
@@ -202,7 +195,7 @@ export default function StudentEnrollmentForm() {
               {/* Grid Matrix Layout for Technical Blueprints */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div className="p-3 rounded-xl bg-white/[0.01] border border-white/5 space-y-1.5">
-                  <h4 className="text-[11px] font-black text-[#3b82f6] uppercase tracking-wider">On-Page SEO Checklist</h4>
+                  <h4 className="text-[11px] font-black text-[#00f2ff] uppercase tracking-wider">On-Page SEO Checklist</h4>
                   {/* <div className="flex flex-wrap gap-1">
                     {["Title Tags", "Meta Descriptions", "URL Structure", "Heading Hierarchy", "Internal Linking", "Image Optimization", "Schema Markup", "Structured Data"].map((item, i) => (
                       <span key={i} className="text-[9px] bg-white/5 border border-white/10 px-1.5 py-0.5 rounded text-zinc-300 font-medium">{item}</span>
@@ -211,7 +204,7 @@ export default function StudentEnrollmentForm() {
                 </div>
 
                 <div className="p-3 rounded-xl bg-white/[0.01] border border-white/5 space-y-1.5">
-                  <h4 className="text-[11px] font-black text-[#3b82f6] uppercase tracking-wider">Technical SEO Blueprint</h4>
+                  <h4 className="text-[11px] font-black text-[#00f2ff] uppercase tracking-wider">Technical SEO Blueprint</h4>
                   {/* <div className="flex flex-wrap gap-1">
                     {["XML Sitemaps", "Robots.txt", "Canonical Tags", "Crawl Budget", "Indexing Issues", "Core Web Vitals", "Speed Optimization", "Mobile SEO"].map((item, i) => (
                       <span key={i} className="text-[9px] bg-white/5 border border-white/10 px-1.5 py-0.5 rounded text-zinc-300 font-medium">{item}</span>
@@ -220,7 +213,7 @@ export default function StudentEnrollmentForm() {
                 </div>
 
                 <div className="p-3 rounded-xl bg-white/[0.01] border border-white/5 space-y-1.5">
-                  <h4 className="text-[11px] font-black text-[#3b82f6] uppercase tracking-wider">Local SEO Strategy</h4>
+                  <h4 className="text-[11px] font-black text-[#00f2ff] uppercase tracking-wider">Local SEO Strategy</h4>
                   {/* <div className="flex flex-wrap gap-1">
                     {["Google Business Profile", "Local Citations", "NAP Consistency", "Review Management", "Maps Rankings"].map((item, i) => (
                       <span key={i} className="text-[9px] bg-white/5 border border-white/10 px-1.5 py-0.5 rounded text-zinc-300 font-medium">{item}</span>
@@ -229,7 +222,7 @@ export default function StudentEnrollmentForm() {
                 </div>
 
                 <div className="p-3 rounded-xl bg-white/[0.01] border border-white/5 space-y-1.5">
-                  <h4 className="text-[11px] font-black text-[#3b82f6] uppercase tracking-wider">Google & Premium Tools</h4>
+                  <h4 className="text-[11px] font-black text-[#00f2ff] uppercase tracking-wider">Google & Premium Tools</h4>
                   {/* <div className="flex flex-wrap gap-1">
                     {["Search Console", "GA4 Analytics", "Tag Manager", "Ahrefs Suite", "SEMrush Core", "Rank Math Pro"].map((item, i) => (
                       <span key={i} className="text-[9px] bg-white/5 border border-white/10 px-1.5 py-0.5 rounded text-zinc-300 font-medium">{item}</span>
@@ -266,39 +259,7 @@ export default function StudentEnrollmentForm() {
           </div>
 
           {/* 🖼️ TRUST BADGES FOOTER BLOCK (PICTURE SECTION) */}
-          <div className="space-y-4 relative z-10 mt-4 shrink-0 max-w-xl mx-auto w-full pt-4 pb-2">
-            <div className="w-full h-px bg-gradient-to-r from-white/10 via-white/5 to-transparent" />
-
-            <div className="flex items-center gap-4 border-l border-white/10 pl-6 h-10 w-full sm:w-auto justify-center sm:justify-start">
-              <div className="flex items-center gap-4 text-left bg-transparent p-0">
-                <div className="flex -space-x-3.5 items-center isolation-auto">
-                  {[
-                    "https://images.unsplash.com/photo-1669804227127-0876cb0f5474?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHBha2lzdGFuaSUyMGbveXN8ZW58MHx8MHx8fDA%3D",
-                    "https://plus.unsplash.com/premium_photo-1682096108814-b53765f48ba5?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHBha2lzdGFuaSUyMGdpcmx8ZW58MHx8MHx8fDA%3D",
-                    "https://images.unsplash.com/photo-1647151481397-95e581943ac1?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cGFraXN0YW5pJTIwYm95c3xlbnwwfHwwfHx8MA%3D%3D",
-                    "https://images.unsplash.com/photo-1599842057874-37393e9342df?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHBha2lzdGFuaSUyMGdpcmx8ZW58MHx8MHx8fDA%3D",
-                    "https://images.unsplash.com/photo-1711374316403-2bfa31ae9c2a?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHBha2lzdGFuaSUyMGbveXN8ZW58MHx8MHx8fDA%3D"
-                  ].map((src, idx) => (
-                    <div
-                      key={idx}
-                      className="w-9 h-9 rounded-full border-2 border-[#111827] ring-1 ring-emerald-500/40 overflow-hidden bg-zinc-900 shrink-0 transform hover:scale-110 hover:z-10 transition-all duration-300"
-                    >
-                      <img src={src} alt={`Student ${idx + 1}`} className="w-full h-full object-cover" loading="lazy" />
-                    </div>
-                  ))}
-                </div>
-
-                <div className="flex flex-col justify-center leading-none">
-                  <h4 className="text-xl font-black text-white tracking-tight flex items-center gap-0.5 uppercase">
-                    150<span className="text-blue-500 font-black">+</span>
-                  </h4>
-                  <p className="text-[10px] text-white font-black uppercase tracking-widest mt-1.5 whitespace-nowrap">
-                    Students Trained.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+        
         </section>
 
         {/* ⚪ RIGHT SIDE COLUMN: FORM HUB */}
