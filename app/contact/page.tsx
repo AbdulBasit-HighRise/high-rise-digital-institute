@@ -27,10 +27,13 @@ export default function StudentEnrollmentForm() {
     agree: false,
   });
 
+  // Client-side window check add kiya hai taaki build deploy hote waqt error na aaye
   const handleCopy = (text: string, id: string) => {
-    navigator.clipboard.writeText(text);
-    setCopiedText(id);
-    setTimeout(() => setCopiedText(null), 2000);
+    if (typeof window !== "undefined" && navigator.clipboard) {
+      navigator.clipboard.writeText(text);
+      setCopiedText(id);
+      setTimeout(() => setCopiedText(null), 2000);
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -98,15 +101,17 @@ export default function StudentEnrollmentForm() {
 
         setSubmitted(true);
       }
-    } catch (error: any) {
-      alert(`Registration Mismatch Error: ${error.message || "Connection Interrupted"}`);
+    } catch (error: unknown) {
+      // TypeScript safety strict error handle fix
+      const errorMessage = error instanceof Error ? error.message : "Connection Interrupted";
+      alert(`Registration Mismatch Error: ${errorMessage}`);
     } finally {
       setLoading(false);
     }
   };
 
   const sendWhatsAppReceipt = () => {
-    const adminWhatsAppNumber = "923001234567";
+    const adminWhatsAppNumber = "923002777587";
     const structuredText = `🚨 *NEW HRD LMS ENROLLMENT* 🚨%0A%0A*Name:* ${formData.fullName}%0A*Father Name:* ${formData.fatherName}%0A*Course:* ${formData.course.toUpperCase()}%0A*Phone:* ${formData.phoneNumber}%0A%0A_Maine form register kar diya hai. Kindly meri fee verify karke mera dashboard account status unlock/approve kar dein. Fee screenshot neeche attached hai:_`;
 
     window.open(`https://api.whatsapp.com/send?phone=${adminWhatsAppNumber}&text=${structuredText}`, "_blank");
@@ -137,7 +142,7 @@ export default function StudentEnrollmentForm() {
               </span> 
             </h1>
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-white/[0.02] border border-white/10 text-[10px] sm:text-xs font-bold text-white  tracking-wider">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-white/[0.02] border border-white/10 text-[10px] sm:text-xs font-bold text-white tracking-wider">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#00f2ff] text-white animate-pulse" />
                 WordPress & Advanced SEO Training Program Included
               </div>
@@ -148,7 +153,6 @@ export default function StudentEnrollmentForm() {
           <div className="w-full max-w-xl border-t border-white/10 pt-4 mt-6 mb-6 relative z-10 text-left flex flex-col mx-auto shrink-0">
             
             <div className="mb-3 shrink-0">
-            
               <h2 className="text-sm sm:text-base xl:text-lg font-black text-white tracking-tight mt-1">
                 Program Syllabus Breakdown
               </h2>
@@ -257,9 +261,6 @@ export default function StudentEnrollmentForm() {
 
             </div>
           </div>
-
-          {/* 🖼️ TRUST BADGES FOOTER BLOCK (PICTURE SECTION) */}
-        
         </section>
 
         {/* ⚪ RIGHT SIDE COLUMN: FORM HUB */}
