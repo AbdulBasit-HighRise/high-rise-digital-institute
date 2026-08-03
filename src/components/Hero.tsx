@@ -148,7 +148,7 @@ export default function HeroSection() {
               <div className="absolute inset-0 border border-white/[0.05] rounded-xl pointer-events-none z-20" />
 
               <Image
-                src="/about.jpg"
+                src="/HRSkills.png"
                 alt="HRD Institute Tech Education Ecosystem Mockup"
                 width={1400} 
                 height={1000}
