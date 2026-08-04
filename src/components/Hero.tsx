@@ -150,8 +150,8 @@ export default function HeroSection() {
               <Image
                 src="/HRSkills.png"
                 alt="HRD Institute Tech Education Ecosystem Mockup"
-                width={1000} 
-                height={600}
+                width={800} 
+                height={800}
                 priority
                 className="w-full h-full object-cover rounded-xl select-none pointer-events-none shadow-inner opacity-95 group-hover:opacity-100 transition-all duration-500 group-hover:scale-[1.01]"
               />
